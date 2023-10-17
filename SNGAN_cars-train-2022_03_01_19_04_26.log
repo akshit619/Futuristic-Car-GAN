@@ -1,0 +1,1322 @@
+[INFO] 2022-03-01 19:04:26 > Run name : SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 19:04:26 > {
+  "config_path": "src/configs/cars/SNGAN_cars.json",
+  "checkpoint_folder": null,
+  "load_current": false,
+  "log_output_path": null,
+  "distributed_data_parallel": false,
+  "nodes": 1,
+  "nr": 0,
+  "seed": 42,
+  "num_workers": 8,
+  "synchronized_bn": false,
+  "mixed_precision": false,
+  "LARS_optimizer": false,
+  "disable_debugging_API": false,
+  "reduce_train_dataset": 1.0,
+  "bn_stat_OnTheFly": false,
+  "standing_statistics": false,
+  "standing_step": -1,
+  "freeze_layers": -1,
+  "load_all_data_in_memory": true,
+  "train": true,
+  "eval": true,
+  "eval_backbone": "Inception_V3",
+  "save_images": false,
+  "image_visualization": false,
+  "k_nearest_neighbor": false,
+  "interpolation": false,
+  "frequency_analysis": false,
+  "tsne_analysis": false,
+  "tsne_analysis_lt": false,
+  "corr_mat": false,
+  "attention_maps": false,
+  "nrow": 10,
+  "ncol": 8,
+  "print_every": 100,
+  "save_every": 1000,
+  "eval_type": "test"
+}
+[INFO] 2022-03-01 19:04:26 > {
+  "data_processing": {
+    "dataset_name": "cars",
+    "data_path": "./data/cars",
+    "per_samples": false,
+    "imb_factor": 0.01,
+    "img_size": 128,
+    "num_classes": 2,
+    "batch_size4prcsing": 256,
+    "chunk_size": 500,
+    "compression": false,
+    "shuffle_emb": false,
+    "sn_regularize": false,
+    "num_power_iter": 0,
+    "beta": 0.99,
+    "sn_reg_weight": 1,
+    "evaluation_checkpoint": false,
+    "class_balanced_loss_based_on_effective_number_of_samples": false,
+    "imbalanced_cifar10": false,
+    "imbalanced_cifar100": false,
+    "imbalanced_lsun": false,
+    "bool_profiler": false,
+    "bool_tensorboard_plots": false
+  },
+  "train": {
+    "model": {
+      "architecture": "resnet",
+      "conditional_strategy": "no",
+      "pos_collected_numerator": false,
+      "hypersphere_dim": "N/A",
+      "nonlinear_embed": false,
+      "normalize_embed": false,
+      "g_spectral_norm": false,
+      "d_spectral_norm": true,
+      "activation_fn": "ReLU",
+      "attention": false,
+      "attention_after_nth_gen_block": "N/A",
+      "attention_after_nth_dis_block": "N/A",
+      "z_dim": 128,
+      "shared_dim": "N/A",
+      "g_conv_dim": 64,
+      "d_conv_dim": 64,
+      "G_depth": "N/A",
+      "D_depth": "N/A",
+      "sn_batchnorm": false,
+      "eval_backbone": "Inception_V3",
+      "aux_disc": "",
+      "attn_lambd": 1
+    },
+    "optimization": {
+      "optimizer": "Adam",
+      "batch_size": 128,
+      "accumulation_steps": 1,
+      "d_lr": 0.0002,
+      "g_lr": 0.0005,
+      "momentum": "N/A",
+      "nesterov": "N/A",
+      "alpha": "N/A",
+      "beta1": 0.0,
+      "beta2": 0.9,
+      "g_steps_per_iter": 1,
+      "d_steps_per_iter": 2,
+      "total_step": 40000
+    },
+    "loss_function": {
+      "bool_param_plot": false,
+      "plot_param": 10000,
+      "plot_discriminator_predictions": false,
+      "lc_regularizer": true,
+      "lc_lambda": 0.3,
+      "lc_gamma": 0.99,
+      "adv_loss": "hinge",
+      "contrastive_lambda": "N/A",
+      "margin": "N/A",
+      "tempering_type": "N/A",
+      "tempering_step": "N/A",
+      "start_temperature": "N/A",
+      "end_temperature": "N/A",
+      "weight_clipping_for_dis": false,
+      "weight_clipping_bound": "N/A",
+      "gradient_penalty_for_dis": false,
+      "gradient_penalty_lambda": "N/A",
+      "deep_regret_analysis_for_dis": false,
+      "regret_penalty_lambda": "N/A",
+      "cr": false,
+      "cr_lambda": "N/A",
+      "bcr": false,
+      "real_lambda": "N/A",
+      "fake_lambda": "N/A",
+      "zcr": false,
+      "gen_lambda": "N/A",
+      "dis_lambda": "N/A",
+      "sigma_noise": "N/A"
+    },
+    "initialization": {
+      "g_init": "ortho",
+      "d_init": "ortho"
+    },
+    "training_and_sampling_setting": {
+      "random_flip_preprocessing": true,
+      "diff_aug": true,
+      "ada": false,
+      "ada_target": "N/A",
+      "ada_length": "N/A",
+      "prior": "gaussian",
+      "truncated_factor": 1,
+      "latent_op": false,
+      "latent_op_rate": "N/A",
+      "latent_op_step": "N/A",
+      "latent_op_step4eval": "N/A",
+      "latent_op_alpha": "N/A",
+      "latent_op_beta": "N/A",
+      "latent_norm_reg_weight": "N/A",
+      "ema": false,
+      "ema_decay": "N/A",
+      "ema_start": "N/A"
+    }
+  }
+}
+[INFO] 2022-03-01 19:04:26 > Load train datasets...
+[INFO] 2022-03-01 19:04:27 > Train dataset size : 12112
+[INFO] 2022-03-01 19:04:27 > Load test datasets...
+[INFO] 2022-03-01 19:04:27 > Eval dataset size : 12112
+[INFO] 2022-03-01 19:04:27 > Build model...
+[INFO] 2022-03-01 19:04:27 > Modules are located on models.resnet.
+[INFO] 2022-03-01 19:04:31 > Number of parameters: 32150787
+[INFO] 2022-03-01 19:04:31 > Generator(
+  (linear0): Linear(in_features=128, out_features=16384, bias=True)
+  (blocks): ModuleList(
+    (0): ModuleList(
+      (0): GenBlock(
+        (bn1): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True, track_running_stats=False)
+        (bn2): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True, track_running_stats=False)
+        (activation): ReLU(inplace=True)
+        (conv2d0): Conv2d(1024, 1024, kernel_size=(1, 1), stride=(1, 1))
+        (conv2d1): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (conv2d2): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (1): ModuleList(
+      (0): GenBlock(
+        (bn1): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True, track_running_stats=False)
+        (bn2): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True, track_running_stats=False)
+        (activation): ReLU(inplace=True)
+        (conv2d0): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1))
+        (conv2d1): Conv2d(1024, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (conv2d2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (2): ModuleList(
+      (0): GenBlock(
+        (bn1): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True, track_running_stats=False)
+        (bn2): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True, track_running_stats=False)
+        (activation): ReLU(inplace=True)
+        (conv2d0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+        (conv2d1): Conv2d(512, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (conv2d2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (3): ModuleList(
+      (0): GenBlock(
+        (bn1): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True, track_running_stats=False)
+        (bn2): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True, track_running_stats=False)
+        (activation): ReLU(inplace=True)
+        (conv2d0): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
+        (conv2d1): Conv2d(256, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (conv2d2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (4): ModuleList(
+      (0): GenBlock(
+        (bn1): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True, track_running_stats=False)
+        (bn2): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True, track_running_stats=False)
+        (activation): ReLU(inplace=True)
+        (conv2d0): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+        (conv2d1): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (conv2d2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+  )
+  (bn4): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True, track_running_stats=False)
+  (activation): ReLU(inplace=True)
+  (conv2d5): Conv2d(64, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (tanh): Tanh()
+)
+[INFO] 2022-03-01 19:04:31 > Number of parameters: 38419137
+[INFO] 2022-03-01 19:04:31 > Discriminator(
+  (blocks): ModuleList(
+    (0): ModuleList(
+      (0): DiscOptBlock(
+        (conv2d0): Conv2d(3, 64, kernel_size=(1, 1), stride=(1, 1))
+        (conv2d1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (conv2d2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (activation): ReLU(inplace=True)
+        (average_pooling): AvgPool2d(kernel_size=2, stride=2, padding=0)
+      )
+    )
+    (1): ModuleList(
+      (0): DiscBlock(
+        (activation): ReLU(inplace=True)
+        (conv2d0): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1))
+        (conv2d1): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (conv2d2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (average_pooling): AvgPool2d(kernel_size=2, stride=2, padding=0)
+      )
+    )
+    (2): ModuleList(
+      (0): DiscBlock(
+        (activation): ReLU(inplace=True)
+        (conv2d0): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1))
+        (conv2d1): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (conv2d2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (average_pooling): AvgPool2d(kernel_size=2, stride=2, padding=0)
+      )
+    )
+    (3): ModuleList(
+      (0): DiscBlock(
+        (activation): ReLU(inplace=True)
+        (conv2d0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+        (conv2d1): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (conv2d2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (average_pooling): AvgPool2d(kernel_size=2, stride=2, padding=0)
+      )
+    )
+    (4): ModuleList(
+      (0): DiscBlock(
+        (activation): ReLU(inplace=True)
+        (conv2d0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(1, 1))
+        (conv2d1): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (conv2d2): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (average_pooling): AvgPool2d(kernel_size=2, stride=2, padding=0)
+      )
+    )
+    (5): ModuleList(
+      (0): DiscBlock(
+        (activation): ReLU(inplace=True)
+        (conv2d1): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (conv2d2): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (average_pooling): AvgPool2d(kernel_size=2, stride=2, padding=0)
+      )
+    )
+  )
+  (activation): ReLU(inplace=True)
+  (linear1): Linear(in_features=1024, out_features=1, bias=True)
+)
+[INFO] 2022-03-01 19:04:32 > Start training....
+[INFO] 2022-03-01 19:06:33 > Step:     100 Progress: 0.2% Elapsed: 0:02:00 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.78581 Generator_loss: 0.448605 
+[INFO] 2022-03-01 19:08:29 > Step:     200 Progress: 0.5% Elapsed: 0:03:56 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.94597 Generator_loss: -0.114612 
+[INFO] 2022-03-01 19:10:25 > Step:     300 Progress: 0.8% Elapsed: 0:05:52 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.79028 Generator_loss: 0.622146 
+[INFO] 2022-03-01 19:12:21 > Step:     400 Progress: 1.0% Elapsed: 0:07:48 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.54642 Generator_loss: -0.10224 
+[INFO] 2022-03-01 19:14:16 > Step:     500 Progress: 1.2% Elapsed: 0:09:44 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.75576 Generator_loss: 0.530055 
+[INFO] 2022-03-01 19:16:12 > Step:     600 Progress: 1.5% Elapsed: 0:11:40 SN_Regularizer_Loss: 0.0 Discriminator_loss: 2.15622 Generator_loss: 0.34386 
+[INFO] 2022-03-01 19:18:08 > Step:     700 Progress: 1.8% Elapsed: 0:13:36 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.93971 Generator_loss: 0.377961 
+[INFO] 2022-03-01 19:20:05 > Step:     800 Progress: 2.0% Elapsed: 0:15:32 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.95552 Generator_loss: 0.339407 
+[INFO] 2022-03-01 19:22:01 > Step:     900 Progress: 2.2% Elapsed: 0:17:28 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.95049 Generator_loss: 0.748123 
+[INFO] 2022-03-01 19:23:57 > Step:    1000 Progress: 2.5% Elapsed: 0:19:24 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.92368 Generator_loss: 0.592538 
+[INFO] 2022-03-01 19:23:57 > Start Evaluation (1000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 19:23:57 > Calculating FID Score....
+[INFO] 2022-03-01 19:24:22 > Calculating Inception Score....
+[INFO] 2022-03-01 19:24:41 > Calculate F_beta Score....
+[INFO] 2022-03-01 19:25:23 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-01 19:25:24 > Calculate Accuracies....
+[INFO] 2022-03-01 19:25:41 > Calculate Accuracies....
+[INFO] 2022-03-01 19:25:46 > F_8 score (Step: 1000, Using test images): 0.0010357828622512477
+[INFO] 2022-03-01 19:25:46 > F_1/8 score (Step: 1000, Using test images): 0.029933968261439816
+[INFO] 2022-03-01 19:25:46 > FID score (Step: 1000, Using test moments): 223.7347720178289
+[INFO] 2022-03-01 19:25:46 > Inception score (Step: 1000, 12112 generated images): 2.3753645420074463
+[INFO] 2022-03-01 19:25:46 > Best FID score (Step: 1000, Using test moments): 223.7347720178289
+[INFO] 2022-03-01 19:25:46 > Start visualize images....
+[INFO] 2022-03-01 19:25:47 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-01 19:25:49 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 19:27:45 > Step:    1100 Progress: 2.8% Elapsed: 0:23:12 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99186 Generator_loss: 0.816027 
+[INFO] 2022-03-01 19:29:41 > Step:    1200 Progress: 3.0% Elapsed: 0:25:08 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.97875 Generator_loss: 0.887072 
+[INFO] 2022-03-01 19:31:37 > Step:    1300 Progress: 3.2% Elapsed: 0:27:04 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.94831 Generator_loss: 0.915379 
+[INFO] 2022-03-01 19:33:33 > Step:    1400 Progress: 3.5% Elapsed: 0:29:00 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.98557 Generator_loss: 0.747142 
+[INFO] 2022-03-01 19:35:29 > Step:    1500 Progress: 3.8% Elapsed: 0:30:57 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.98507 Generator_loss: 0.984883 
+[INFO] 2022-03-01 19:37:26 > Step:    1600 Progress: 4.0% Elapsed: 0:32:53 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.97574 Generator_loss: 0.861364 
+[INFO] 2022-03-01 19:39:22 > Step:    1700 Progress: 4.2% Elapsed: 0:34:49 SN_Regularizer_Loss: 0.0 Discriminator_loss: 2.00079 Generator_loss: 0.853523 
+[INFO] 2022-03-01 19:41:18 > Step:    1800 Progress: 4.5% Elapsed: 0:36:45 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99748 Generator_loss: 0.922217 
+[INFO] 2022-03-01 19:43:14 > Step:    1900 Progress: 4.8% Elapsed: 0:38:41 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99626 Generator_loss: 0.779515 
+[INFO] 2022-03-01 19:45:10 > Step:    2000 Progress: 5.0% Elapsed: 0:40:37 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99632 Generator_loss: 0.976629 
+[INFO] 2022-03-01 19:45:10 > Start Evaluation (2000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 19:45:10 > Calculating FID Score....
+[INFO] 2022-03-01 19:45:33 > Calculating Inception Score....
+[INFO] 2022-03-01 19:45:53 > Calculate F_beta Score....
+[INFO] 2022-03-01 19:46:34 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-01 19:46:34 > Calculate Accuracies....
+[INFO] 2022-03-01 19:46:52 > Calculate Accuracies....
+[INFO] 2022-03-01 19:46:57 > F_8 score (Step: 2000, Using test images): 0.03166641910318764
+[INFO] 2022-03-01 19:46:57 > F_1/8 score (Step: 2000, Using test images): 0.1512759733943313
+[INFO] 2022-03-01 19:46:57 > FID score (Step: 2000, Using test moments): 135.1911722897489
+[INFO] 2022-03-01 19:46:57 > Inception score (Step: 2000, 12112 generated images): 3.0202596187591553
+[INFO] 2022-03-01 19:46:57 > Best FID score (Step: 2000, Using test moments): 135.1911722897489
+[INFO] 2022-03-01 19:46:57 > Start visualize images....
+[INFO] 2022-03-01 19:46:57 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-01 19:47:00 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 19:48:56 > Step:    2100 Progress: 5.2% Elapsed: 0:44:23 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99412 Generator_loss: 0.952981 
+[INFO] 2022-03-01 19:50:52 > Step:    2200 Progress: 5.5% Elapsed: 0:46:19 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99718 Generator_loss: 0.937438 
+[INFO] 2022-03-01 19:52:48 > Step:    2300 Progress: 5.8% Elapsed: 0:48:15 SN_Regularizer_Loss: 0.0 Discriminator_loss: 2.05879 Generator_loss: 0.839821 
+[INFO] 2022-03-01 19:54:44 > Step:    2400 Progress: 6.0% Elapsed: 0:50:12 SN_Regularizer_Loss: 0.0 Discriminator_loss: 2.00139 Generator_loss: 0.921459 
+[INFO] 2022-03-01 19:56:40 > Step:    2500 Progress: 6.2% Elapsed: 0:52:08 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.98627 Generator_loss: 0.9752 
+[INFO] 2022-03-01 19:58:36 > Step:    2600 Progress: 6.5% Elapsed: 0:54:04 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.98778 Generator_loss: 1.03221 
+[INFO] 2022-03-01 20:00:32 > Step:    2700 Progress: 6.8% Elapsed: 0:56:00 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99951 Generator_loss: 0.687892 
+[INFO] 2022-03-01 20:02:28 > Step:    2800 Progress: 7.0% Elapsed: 0:57:56 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.98876 Generator_loss: 1.00004 
+[INFO] 2022-03-01 20:04:24 > Step:    2900 Progress: 7.2% Elapsed: 0:59:52 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99745 Generator_loss: 0.961827 
+[INFO] 2022-03-01 20:06:21 > Step:    3000 Progress: 7.5% Elapsed: 1:01:48 SN_Regularizer_Loss: 0.0 Discriminator_loss: 2.00683 Generator_loss: 0.866424 
+[INFO] 2022-03-01 20:06:21 > Start Evaluation (3000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 20:06:21 > Calculating FID Score....
+[INFO] 2022-03-01 20:06:45 > Calculating Inception Score....
+[INFO] 2022-03-01 20:07:04 > Calculate F_beta Score....
+[INFO] 2022-03-01 20:07:46 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-01 20:07:46 > Calculate Accuracies....
+[INFO] 2022-03-01 20:08:04 > Calculate Accuracies....
+[INFO] 2022-03-01 20:08:09 > F_8 score (Step: 3000, Using test images): 0.19659542757978252
+[INFO] 2022-03-01 20:08:09 > F_1/8 score (Step: 3000, Using test images): 0.20917713557738501
+[INFO] 2022-03-01 20:08:09 > FID score (Step: 3000, Using test moments): 105.95787005206228
+[INFO] 2022-03-01 20:08:09 > Inception score (Step: 3000, 12112 generated images): 3.1325173377990723
+[INFO] 2022-03-01 20:08:09 > Best FID score (Step: 3000, Using test moments): 105.95787005206228
+[INFO] 2022-03-01 20:08:09 > Start visualize images....
+[INFO] 2022-03-01 20:08:09 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-01 20:08:12 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 20:10:08 > Step:    3100 Progress: 7.8% Elapsed: 1:05:35 SN_Regularizer_Loss: 0.0 Discriminator_loss: 2.00122 Generator_loss: 0.957123 
+[INFO] 2022-03-01 20:12:05 > Step:    3200 Progress: 8.0% Elapsed: 1:07:32 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99917 Generator_loss: 1.02017 
+[INFO] 2022-03-01 20:14:01 > Step:    3300 Progress: 8.2% Elapsed: 1:09:29 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99216 Generator_loss: 0.934578 
+[INFO] 2022-03-01 20:15:58 > Step:    3400 Progress: 8.5% Elapsed: 1:11:25 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.98997 Generator_loss: 0.97867 
+[INFO] 2022-03-01 20:17:54 > Step:    3500 Progress: 8.8% Elapsed: 1:13:22 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99943 Generator_loss: 0.941735 
+[INFO] 2022-03-01 20:19:51 > Step:    3600 Progress: 9.0% Elapsed: 1:15:18 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99668 Generator_loss: 0.94011 
+[INFO] 2022-03-01 20:21:47 > Step:    3700 Progress: 9.2% Elapsed: 1:17:15 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.9979 Generator_loss: 0.957552 
+[INFO] 2022-03-01 20:23:44 > Step:    3800 Progress: 9.5% Elapsed: 1:19:11 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.9968 Generator_loss: 0.957072 
+[INFO] 2022-03-01 20:25:40 > Step:    3900 Progress: 9.8% Elapsed: 1:21:08 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99991 Generator_loss: 0.968632 
+[INFO] 2022-03-01 20:27:37 > Step:    4000 Progress: 10.0% Elapsed: 1:23:05 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99492 Generator_loss: 0.971811 
+[INFO] 2022-03-01 20:27:37 > Start Evaluation (4000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 20:27:37 > Calculating FID Score....
+[INFO] 2022-03-01 20:28:02 > Calculating Inception Score....
+[INFO] 2022-03-01 20:28:21 > Calculate F_beta Score....
+[INFO] 2022-03-01 20:29:02 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-01 20:29:02 > Calculate Accuracies....
+[INFO] 2022-03-01 20:29:20 > Calculate Accuracies....
+[INFO] 2022-03-01 20:29:25 > F_8 score (Step: 4000, Using test images): 0.3951084986967005
+[INFO] 2022-03-01 20:29:25 > F_1/8 score (Step: 4000, Using test images): 0.43527272277795914
+[INFO] 2022-03-01 20:29:25 > FID score (Step: 4000, Using test moments): 79.6393290408688
+[INFO] 2022-03-01 20:29:25 > Inception score (Step: 4000, 12112 generated images): 2.7882943153381348
+[INFO] 2022-03-01 20:29:25 > Best FID score (Step: 4000, Using test moments): 79.6393290408688
+[INFO] 2022-03-01 20:29:25 > Start visualize images....
+[INFO] 2022-03-01 20:29:25 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-01 20:29:28 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 20:31:24 > Step:    4100 Progress: 10.2% Elapsed: 1:26:52 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99684 Generator_loss: 0.929719 
+[INFO] 2022-03-01 20:33:21 > Step:    4200 Progress: 10.5% Elapsed: 1:28:48 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99752 Generator_loss: 0.934301 
+[INFO] 2022-03-01 20:35:18 > Step:    4300 Progress: 10.8% Elapsed: 1:30:45 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99881 Generator_loss: 0.961791 
+[INFO] 2022-03-01 20:37:14 > Step:    4400 Progress: 11.0% Elapsed: 1:32:41 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99673 Generator_loss: 0.884632 
+[INFO] 2022-03-01 20:39:10 > Step:    4500 Progress: 11.2% Elapsed: 1:34:38 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.9969 Generator_loss: 0.799699 
+[INFO] 2022-03-01 20:41:07 > Step:    4600 Progress: 11.5% Elapsed: 1:36:34 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99333 Generator_loss: 0.942149 
+[INFO] 2022-03-01 20:43:03 > Step:    4700 Progress: 11.8% Elapsed: 1:38:31 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99405 Generator_loss: 0.960978 
+[INFO] 2022-03-01 20:45:01 > Step:    4800 Progress: 12.0% Elapsed: 1:40:28 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99665 Generator_loss: 0.945347 
+[INFO] 2022-03-01 20:46:57 > Step:    4900 Progress: 12.2% Elapsed: 1:42:25 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99962 Generator_loss: 0.978338 
+[INFO] 2022-03-01 20:48:54 > Step:    5000 Progress: 12.5% Elapsed: 1:44:21 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99168 Generator_loss: 0.877402 
+[INFO] 2022-03-01 20:48:54 > Start Evaluation (5000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 20:48:54 > Calculating FID Score....
+[INFO] 2022-03-01 20:49:18 > Calculating Inception Score....
+[INFO] 2022-03-01 20:49:37 > Calculate F_beta Score....
+[INFO] 2022-03-01 20:50:18 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-01 20:50:19 > Calculate Accuracies....
+[INFO] 2022-03-01 20:50:37 > Calculate Accuracies....
+[INFO] 2022-03-01 20:50:41 > F_8 score (Step: 5000, Using test images): 0.5610006344917146
+[INFO] 2022-03-01 20:50:41 > F_1/8 score (Step: 5000, Using test images): 0.5272107391864089
+[INFO] 2022-03-01 20:50:41 > FID score (Step: 5000, Using test moments): 64.61050368752097
+[INFO] 2022-03-01 20:50:41 > Inception score (Step: 5000, 12112 generated images): 3.076526403427124
+[INFO] 2022-03-01 20:50:41 > Best FID score (Step: 5000, Using test moments): 64.61050368752097
+[INFO] 2022-03-01 20:50:41 > Start visualize images....
+[INFO] 2022-03-01 20:50:42 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-01 20:50:45 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 20:52:41 > Step:    5100 Progress: 12.8% Elapsed: 1:48:08 SN_Regularizer_Loss: 0.0 Discriminator_loss: 2.0019 Generator_loss: 0.810934 
+[INFO] 2022-03-01 20:54:37 > Step:    5200 Progress: 13.0% Elapsed: 1:50:05 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99859 Generator_loss: 0.943029 
+[INFO] 2022-03-01 20:56:34 > Step:    5300 Progress: 13.2% Elapsed: 1:52:01 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99437 Generator_loss: 0.946056 
+[INFO] 2022-03-01 20:58:30 > Step:    5400 Progress: 13.5% Elapsed: 1:53:58 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.98456 Generator_loss: 1.00593 
+[INFO] 2022-03-01 21:00:27 > Step:    5500 Progress: 13.8% Elapsed: 1:55:55 SN_Regularizer_Loss: 0.0 Discriminator_loss: 2.00078 Generator_loss: 0.976904 
+[INFO] 2022-03-01 21:02:24 > Step:    5600 Progress: 14.0% Elapsed: 1:57:51 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99499 Generator_loss: 0.980755 
+[INFO] 2022-03-01 21:04:20 > Step:    5700 Progress: 14.2% Elapsed: 1:59:48 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99159 Generator_loss: 0.895362 
+[INFO] 2022-03-01 21:06:17 > Step:    5800 Progress: 14.5% Elapsed: 2:01:44 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99725 Generator_loss: 0.939324 
+[INFO] 2022-03-01 21:08:13 > Step:    5900 Progress: 14.8% Elapsed: 2:03:41 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.98591 Generator_loss: 0.947931 
+[INFO] 2022-03-01 21:10:10 > Step:    6000 Progress: 15.0% Elapsed: 2:05:37 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99136 Generator_loss: 0.925327 
+[INFO] 2022-03-01 21:10:10 > Start Evaluation (6000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 21:10:10 > Calculating FID Score....
+[INFO] 2022-03-01 21:10:34 > Calculating Inception Score....
+[INFO] 2022-03-01 21:10:54 > Calculate F_beta Score....
+[INFO] 2022-03-01 21:11:36 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-01 21:11:36 > Calculate Accuracies....
+[INFO] 2022-03-01 21:11:54 > Calculate Accuracies....
+[INFO] 2022-03-01 21:11:59 > F_8 score (Step: 6000, Using test images): 0.5718218739787954
+[INFO] 2022-03-01 21:11:59 > F_1/8 score (Step: 6000, Using test images): 0.6493201169209697
+[INFO] 2022-03-01 21:11:59 > FID score (Step: 6000, Using test moments): 56.64264439458336
+[INFO] 2022-03-01 21:11:59 > Inception score (Step: 6000, 12112 generated images): 2.706463098526001
+[INFO] 2022-03-01 21:11:59 > Best FID score (Step: 6000, Using test moments): 56.64264439458336
+[INFO] 2022-03-01 21:11:59 > Start visualize images....
+[INFO] 2022-03-01 21:11:59 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-01 21:12:02 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 21:13:58 > Step:    6100 Progress: 15.2% Elapsed: 2:09:26 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99765 Generator_loss: 0.952598 
+[INFO] 2022-03-01 21:15:55 > Step:    6200 Progress: 15.5% Elapsed: 2:11:22 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99757 Generator_loss: 0.958206 
+[INFO] 2022-03-01 21:17:52 > Step:    6300 Progress: 15.8% Elapsed: 2:13:19 SN_Regularizer_Loss: 0.0 Discriminator_loss: 2.00144 Generator_loss: 0.804613 
+[INFO] 2022-03-01 21:19:48 > Step:    6400 Progress: 16.0% Elapsed: 2:15:15 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99299 Generator_loss: 0.952189 
+[INFO] 2022-03-01 21:21:44 > Step:    6500 Progress: 16.2% Elapsed: 2:17:12 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99285 Generator_loss: 0.958411 
+[INFO] 2022-03-01 21:23:41 > Step:    6600 Progress: 16.5% Elapsed: 2:19:08 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.98238 Generator_loss: 0.924875 
+[INFO] 2022-03-01 21:25:37 > Step:    6700 Progress: 16.8% Elapsed: 2:21:04 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99 Generator_loss: 0.936074 
+[INFO] 2022-03-01 21:27:33 > Step:    6800 Progress: 17.0% Elapsed: 2:23:00 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99717 Generator_loss: 0.948887 
+[INFO] 2022-03-01 21:29:28 > Step:    6900 Progress: 17.2% Elapsed: 2:24:56 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.98002 Generator_loss: 0.88313 
+[INFO] 2022-03-01 21:31:24 > Step:    7000 Progress: 17.5% Elapsed: 2:26:52 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.98899 Generator_loss: 0.927594 
+[INFO] 2022-03-01 21:31:24 > Start Evaluation (7000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 21:31:24 > Calculating FID Score....
+[INFO] 2022-03-01 21:31:49 > Calculating Inception Score....
+[INFO] 2022-03-01 21:32:08 > Calculate F_beta Score....
+[INFO] 2022-03-01 21:32:49 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-01 21:32:49 > Calculate Accuracies....
+[INFO] 2022-03-01 21:33:07 > Calculate Accuracies....
+[INFO] 2022-03-01 21:33:11 > F_8 score (Step: 7000, Using test images): 0.6199452022819777
+[INFO] 2022-03-01 21:33:11 > F_1/8 score (Step: 7000, Using test images): 0.5956686066273512
+[INFO] 2022-03-01 21:33:11 > FID score (Step: 7000, Using test moments): 58.48578888789251
+[INFO] 2022-03-01 21:33:11 > Inception score (Step: 7000, 12112 generated images): 3.184669256210327
+[INFO] 2022-03-01 21:33:11 > Best FID score (Step: 6000, Using test moments): 56.64264439458336
+[INFO] 2022-03-01 21:33:11 > Start visualize images....
+[INFO] 2022-03-01 21:33:12 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_current_fid.png
+[INFO] 2022-03-01 21:33:15 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 21:35:11 > Step:    7100 Progress: 17.8% Elapsed: 2:30:38 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.97553 Generator_loss: 0.711153 
+[INFO] 2022-03-01 21:37:07 > Step:    7200 Progress: 18.0% Elapsed: 2:32:34 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.9952 Generator_loss: 0.853921 
+[INFO] 2022-03-01 21:39:03 > Step:    7300 Progress: 18.2% Elapsed: 2:34:30 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.96969 Generator_loss: 0.871422 
+[INFO] 2022-03-01 21:40:59 > Step:    7400 Progress: 18.5% Elapsed: 2:36:26 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99667 Generator_loss: 0.932066 
+[INFO] 2022-03-01 21:42:54 > Step:    7500 Progress: 18.8% Elapsed: 2:38:22 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99992 Generator_loss: 0.956906 
+[INFO] 2022-03-01 21:44:50 > Step:    7600 Progress: 19.0% Elapsed: 2:40:18 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99801 Generator_loss: 0.632355 
+[INFO] 2022-03-01 21:46:46 > Step:    7700 Progress: 19.2% Elapsed: 2:42:14 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.98892 Generator_loss: 0.919638 
+[INFO] 2022-03-01 21:48:42 > Step:    7800 Progress: 19.5% Elapsed: 2:44:10 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.97497 Generator_loss: 0.777912 
+[INFO] 2022-03-01 21:50:39 > Step:    7900 Progress: 19.8% Elapsed: 2:46:06 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.98733 Generator_loss: 0.810414 
+[INFO] 2022-03-01 21:52:35 > Step:    8000 Progress: 20.0% Elapsed: 2:48:02 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99742 Generator_loss: 0.868473 
+[INFO] 2022-03-01 21:52:35 > Start Evaluation (8000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 21:52:35 > Calculating FID Score....
+[INFO] 2022-03-01 21:52:59 > Calculating Inception Score....
+[INFO] 2022-03-01 21:53:18 > Calculate F_beta Score....
+[INFO] 2022-03-01 21:53:59 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-01 21:53:59 > Calculate Accuracies....
+[INFO] 2022-03-01 21:54:17 > Calculate Accuracies....
+[INFO] 2022-03-01 21:54:22 > F_8 score (Step: 8000, Using test images): 0.7211137477137038
+[INFO] 2022-03-01 21:54:22 > F_1/8 score (Step: 8000, Using test images): 0.6372006942798781
+[INFO] 2022-03-01 21:54:22 > FID score (Step: 8000, Using test moments): 54.68096024915329
+[INFO] 2022-03-01 21:54:22 > Inception score (Step: 8000, 12112 generated images): 3.0276939868927
+[INFO] 2022-03-01 21:54:22 > Best FID score (Step: 8000, Using test moments): 54.68096024915329
+[INFO] 2022-03-01 21:54:22 > Start visualize images....
+[INFO] 2022-03-01 21:54:22 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-01 21:54:25 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 21:56:21 > Step:    8100 Progress: 20.2% Elapsed: 2:51:49 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.97963 Generator_loss: 0.885711 
+[INFO] 2022-03-01 21:58:18 > Step:    8200 Progress: 20.5% Elapsed: 2:53:45 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99046 Generator_loss: 0.73025 
+[INFO] 2022-03-01 22:00:14 > Step:    8300 Progress: 20.8% Elapsed: 2:55:41 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.96223 Generator_loss: 0.857935 
+[INFO] 2022-03-01 22:02:10 > Step:    8400 Progress: 21.0% Elapsed: 2:57:38 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.98465 Generator_loss: 0.907721 
+[INFO] 2022-03-01 22:04:07 > Step:    8500 Progress: 21.2% Elapsed: 2:59:34 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.9721 Generator_loss: 0.847139 
+[INFO] 2022-03-01 22:06:03 > Step:    8600 Progress: 21.5% Elapsed: 3:01:30 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.97008 Generator_loss: 0.925759 
+[INFO] 2022-03-01 22:08:00 > Step:    8700 Progress: 21.8% Elapsed: 3:03:27 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.99187 Generator_loss: 0.794609 
+[INFO] 2022-03-01 22:09:56 > Step:    8800 Progress: 22.0% Elapsed: 3:05:24 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.98097 Generator_loss: 0.853658 
+[INFO] 2022-03-01 22:11:53 > Step:    8900 Progress: 22.2% Elapsed: 3:07:20 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.9728 Generator_loss: 0.7804 
+[INFO] 2022-03-01 22:13:49 > Step:    9000 Progress: 22.5% Elapsed: 3:09:16 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.97316 Generator_loss: 0.787705 
+[INFO] 2022-03-01 22:13:49 > Start Evaluation (9000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 22:13:49 > Calculating FID Score....
+[INFO] 2022-03-01 22:14:13 > Calculating Inception Score....
+[INFO] 2022-03-01 22:14:33 > Calculate F_beta Score....
+[INFO] 2022-03-01 22:15:14 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-01 22:15:15 > Calculate Accuracies....
+[INFO] 2022-03-01 22:15:32 > Calculate Accuracies....
+[INFO] 2022-03-01 22:15:37 > F_8 score (Step: 9000, Using test images): 0.6555647220324812
+[INFO] 2022-03-01 22:15:37 > F_1/8 score (Step: 9000, Using test images): 0.7430995256543316
+[INFO] 2022-03-01 22:15:37 > FID score (Step: 9000, Using test moments): 46.27982496981363
+[INFO] 2022-03-01 22:15:37 > Inception score (Step: 9000, 12112 generated images): 2.5733182430267334
+[INFO] 2022-03-01 22:15:37 > Best FID score (Step: 9000, Using test moments): 46.27982496981363
+[INFO] 2022-03-01 22:15:37 > Start visualize images....
+[INFO] 2022-03-01 22:15:38 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-01 22:15:40 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 22:17:36 > Step:    9100 Progress: 22.8% Elapsed: 3:13:04 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.98546 Generator_loss: 0.762394 
+[INFO] 2022-03-01 22:19:33 > Step:    9200 Progress: 23.0% Elapsed: 3:15:00 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.95114 Generator_loss: 0.910623 
+[INFO] 2022-03-01 22:21:29 > Step:    9300 Progress: 23.2% Elapsed: 3:16:57 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.97622 Generator_loss: 0.834408 
+[INFO] 2022-03-01 22:23:26 > Step:    9400 Progress: 23.5% Elapsed: 3:18:53 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.95769 Generator_loss: 0.87026 
+[INFO] 2022-03-01 22:25:23 > Step:    9500 Progress: 23.8% Elapsed: 3:20:50 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.97018 Generator_loss: 0.900284 
+[INFO] 2022-03-01 22:27:19 > Step:    9600 Progress: 24.0% Elapsed: 3:22:46 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.98214 Generator_loss: 0.800386 
+[INFO] 2022-03-01 22:29:15 > Step:    9700 Progress: 24.2% Elapsed: 3:24:43 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.94376 Generator_loss: 0.769378 
+[INFO] 2022-03-01 22:31:12 > Step:    9800 Progress: 24.5% Elapsed: 3:26:39 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.94548 Generator_loss: 0.85521 
+[INFO] 2022-03-01 22:33:08 > Step:    9900 Progress: 24.8% Elapsed: 3:28:36 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.94961 Generator_loss: 0.882747 
+[INFO] 2022-03-01 22:35:05 > Step:   10000 Progress: 25.0% Elapsed: 3:30:32 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.98148 Generator_loss: 0.963621 
+[INFO] 2022-03-01 22:35:05 > Start Evaluation (10000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 22:35:05 > Calculating FID Score....
+[INFO] 2022-03-01 22:35:29 > Calculating Inception Score....
+[INFO] 2022-03-01 22:35:48 > Calculate F_beta Score....
+[INFO] 2022-03-01 22:36:30 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-01 22:36:30 > Calculate Accuracies....
+[INFO] 2022-03-01 22:36:48 > Calculate Accuracies....
+[INFO] 2022-03-01 22:36:53 > F_8 score (Step: 10000, Using test images): 0.8301638134621744
+[INFO] 2022-03-01 22:36:53 > F_1/8 score (Step: 10000, Using test images): 0.7696057509686007
+[INFO] 2022-03-01 22:36:53 > FID score (Step: 10000, Using test moments): 42.68911122220308
+[INFO] 2022-03-01 22:36:53 > Inception score (Step: 10000, 12112 generated images): 3.0734615325927734
+[INFO] 2022-03-01 22:36:53 > Best FID score (Step: 10000, Using test moments): 42.68911122220308
+[INFO] 2022-03-01 22:36:53 > Start visualize images....
+[INFO] 2022-03-01 22:36:53 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-01 22:36:56 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 22:38:52 > Step:   10100 Progress: 25.2% Elapsed: 3:34:19 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.97957 Generator_loss: 0.730645 
+[INFO] 2022-03-01 22:40:49 > Step:   10200 Progress: 25.5% Elapsed: 3:36:16 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.9413 Generator_loss: 0.806097 
+[INFO] 2022-03-01 22:42:45 > Step:   10300 Progress: 25.8% Elapsed: 3:38:13 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.93133 Generator_loss: 0.717153 
+[INFO] 2022-03-01 22:44:42 > Step:   10400 Progress: 26.0% Elapsed: 3:40:09 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.94547 Generator_loss: 0.795603 
+[INFO] 2022-03-01 22:46:38 > Step:   10500 Progress: 26.2% Elapsed: 3:42:05 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.9589 Generator_loss: 0.81509 
+[INFO] 2022-03-01 22:48:34 > Step:   10600 Progress: 26.5% Elapsed: 3:44:02 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.96468 Generator_loss: 0.788783 
+[INFO] 2022-03-01 22:50:31 > Step:   10700 Progress: 26.8% Elapsed: 3:45:58 SN_Regularizer_Loss: 0.0 Discriminator_loss: 2.05064 Generator_loss: 0.687078 
+[INFO] 2022-03-01 22:52:27 > Step:   10800 Progress: 27.0% Elapsed: 3:47:54 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.96129 Generator_loss: 0.865715 
+[INFO] 2022-03-01 22:54:23 > Step:   10900 Progress: 27.3% Elapsed: 3:49:51 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.94142 Generator_loss: 0.802469 
+[INFO] 2022-03-01 22:56:20 > Step:   11000 Progress: 27.5% Elapsed: 3:51:48 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.93984 Generator_loss: 0.873453 
+[INFO] 2022-03-01 22:56:20 > Start Evaluation (11000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 22:56:20 > Calculating FID Score....
+[INFO] 2022-03-01 22:56:44 > Calculating Inception Score....
+[INFO] 2022-03-01 22:57:04 > Calculate F_beta Score....
+[INFO] 2022-03-01 22:57:45 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-01 22:57:45 > Calculate Accuracies....
+[INFO] 2022-03-01 22:58:03 > Calculate Accuracies....
+[INFO] 2022-03-01 22:58:08 > F_8 score (Step: 11000, Using test images): 0.7917352978195329
+[INFO] 2022-03-01 22:58:08 > F_1/8 score (Step: 11000, Using test images): 0.8022264687563407
+[INFO] 2022-03-01 22:58:08 > FID score (Step: 11000, Using test moments): 40.155219095567276
+[INFO] 2022-03-01 22:58:08 > Inception score (Step: 11000, 12112 generated images): 3.03707218170166
+[INFO] 2022-03-01 22:58:08 > Best FID score (Step: 11000, Using test moments): 40.155219095567276
+[INFO] 2022-03-01 22:58:08 > Start visualize images....
+[INFO] 2022-03-01 22:58:08 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-01 22:58:11 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 23:00:07 > Step:   11100 Progress: 27.8% Elapsed: 3:55:35 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.96283 Generator_loss: 0.753862 
+[INFO] 2022-03-01 23:02:04 > Step:   11200 Progress: 28.0% Elapsed: 3:57:31 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.95652 Generator_loss: 0.791713 
+[INFO] 2022-03-01 23:04:00 > Step:   11300 Progress: 28.2% Elapsed: 3:59:28 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.9799 Generator_loss: 0.831249 
+[INFO] 2022-03-01 23:05:56 > Step:   11400 Progress: 28.5% Elapsed: 4:01:24 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.9574 Generator_loss: 0.90614 
+[INFO] 2022-03-01 23:07:53 > Step:   11500 Progress: 28.7% Elapsed: 4:03:20 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.94933 Generator_loss: 0.763184 
+[INFO] 2022-03-01 23:09:49 > Step:   11600 Progress: 29.0% Elapsed: 4:05:16 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.96417 Generator_loss: 0.66815 
+[INFO] 2022-03-01 23:11:45 > Step:   11700 Progress: 29.2% Elapsed: 4:07:13 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.97148 Generator_loss: 0.925174 
+[INFO] 2022-03-01 23:13:42 > Step:   11800 Progress: 29.5% Elapsed: 4:09:10 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.92266 Generator_loss: 0.891957 
+[INFO] 2022-03-01 23:15:38 > Step:   11900 Progress: 29.8% Elapsed: 4:11:06 SN_Regularizer_Loss: 0.0 Discriminator_loss: 2.00503 Generator_loss: 0.856087 
+[INFO] 2022-03-01 23:17:35 > Step:   12000 Progress: 30.0% Elapsed: 4:13:02 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.96808 Generator_loss: 0.84761 
+[INFO] 2022-03-01 23:17:35 > Start Evaluation (12000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 23:17:35 > Calculating FID Score....
+[INFO] 2022-03-01 23:17:59 > Calculating Inception Score....
+[INFO] 2022-03-01 23:18:18 > Calculate F_beta Score....
+[INFO] 2022-03-01 23:19:00 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-01 23:19:01 > Calculate Accuracies....
+[INFO] 2022-03-01 23:19:18 > Calculate Accuracies....
+[INFO] 2022-03-01 23:19:23 > F_8 score (Step: 12000, Using test images): 0.841129840473172
+[INFO] 2022-03-01 23:19:23 > F_1/8 score (Step: 12000, Using test images): 0.7882156238798534
+[INFO] 2022-03-01 23:19:23 > FID score (Step: 12000, Using test moments): 40.744786459369266
+[INFO] 2022-03-01 23:19:23 > Inception score (Step: 12000, 12112 generated images): 3.3179025650024414
+[INFO] 2022-03-01 23:19:23 > Best FID score (Step: 11000, Using test moments): 40.155219095567276
+[INFO] 2022-03-01 23:19:23 > Start visualize images....
+[INFO] 2022-03-01 23:19:24 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_current_fid.png
+[INFO] 2022-03-01 23:19:27 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 23:21:23 > Step:   12100 Progress: 30.2% Elapsed: 4:16:50 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.93369 Generator_loss: 0.825322 
+[INFO] 2022-03-01 23:23:19 > Step:   12200 Progress: 30.5% Elapsed: 4:18:46 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.97472 Generator_loss: 0.838997 
+[INFO] 2022-03-01 23:25:15 > Step:   12300 Progress: 30.8% Elapsed: 4:20:43 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.94522 Generator_loss: 0.756682 
+[INFO] 2022-03-01 23:27:12 > Step:   12400 Progress: 31.0% Elapsed: 4:22:39 SN_Regularizer_Loss: 0.0 Discriminator_loss: 2.06752 Generator_loss: 0.892541 
+[INFO] 2022-03-01 23:29:08 > Step:   12500 Progress: 31.2% Elapsed: 4:24:35 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.96434 Generator_loss: 0.940307 
+[INFO] 2022-03-01 23:31:05 > Step:   12600 Progress: 31.5% Elapsed: 4:26:32 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.9408 Generator_loss: 0.708334 
+[INFO] 2022-03-01 23:33:01 > Step:   12700 Progress: 31.8% Elapsed: 4:28:28 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.94763 Generator_loss: 0.85698 
+[INFO] 2022-03-01 23:34:57 > Step:   12800 Progress: 32.0% Elapsed: 4:30:24 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.97052 Generator_loss: 0.849385 
+[INFO] 2022-03-01 23:36:53 > Step:   12900 Progress: 32.2% Elapsed: 4:32:20 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.97088 Generator_loss: 0.973503 
+[INFO] 2022-03-01 23:38:48 > Step:   13000 Progress: 32.5% Elapsed: 4:34:16 SN_Regularizer_Loss: 0.0 Discriminator_loss: 2.00313 Generator_loss: 0.957761 
+[INFO] 2022-03-01 23:38:48 > Start Evaluation (13000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 23:38:48 > Calculating FID Score....
+[INFO] 2022-03-01 23:39:13 > Calculating Inception Score....
+[INFO] 2022-03-01 23:39:32 > Calculate F_beta Score....
+[INFO] 2022-03-01 23:40:14 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-01 23:40:14 > Calculate Accuracies....
+[INFO] 2022-03-01 23:40:32 > Calculate Accuracies....
+[INFO] 2022-03-01 23:40:36 > F_8 score (Step: 13000, Using test images): 0.8563787798042607
+[INFO] 2022-03-01 23:40:36 > F_1/8 score (Step: 13000, Using test images): 0.8233292625714953
+[INFO] 2022-03-01 23:40:36 > FID score (Step: 13000, Using test moments): 35.274076754609155
+[INFO] 2022-03-01 23:40:36 > Inception score (Step: 13000, 12112 generated images): 3.2767467498779297
+[INFO] 2022-03-01 23:40:36 > Best FID score (Step: 13000, Using test moments): 35.274076754609155
+[INFO] 2022-03-01 23:40:36 > Start visualize images....
+[INFO] 2022-03-01 23:40:37 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-01 23:40:40 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 23:42:35 > Step:   13100 Progress: 32.8% Elapsed: 4:38:03 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.95456 Generator_loss: 0.90575 
+[INFO] 2022-03-01 23:44:31 > Step:   13200 Progress: 33.0% Elapsed: 4:39:59 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.9474 Generator_loss: 0.661064 
+[INFO] 2022-03-01 23:46:27 > Step:   13300 Progress: 33.2% Elapsed: 4:41:54 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.9377 Generator_loss: 0.825402 
+[INFO] 2022-03-01 23:48:23 > Step:   13400 Progress: 33.5% Elapsed: 4:43:51 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.93125 Generator_loss: 0.865818 
+[INFO] 2022-03-01 23:50:19 > Step:   13500 Progress: 33.8% Elapsed: 4:45:47 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.91237 Generator_loss: 0.76145 
+[INFO] 2022-03-01 23:52:15 > Step:   13600 Progress: 34.0% Elapsed: 4:47:42 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.93476 Generator_loss: 0.88922 
+[INFO] 2022-03-01 23:54:11 > Step:   13700 Progress: 34.2% Elapsed: 4:49:38 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.95866 Generator_loss: 0.855397 
+[INFO] 2022-03-01 23:56:07 > Step:   13800 Progress: 34.5% Elapsed: 4:51:34 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.95237 Generator_loss: 0.773072 
+[INFO] 2022-03-01 23:56:36 > Generator checkpoint is checkpoints/SNGAN_cars-train-2022_03_01_19_04_26/model=G-best-weights-step=13000.pth
+[INFO] 2022-03-01 23:56:36 > Discriminator checkpoint is checkpoints/SNGAN_cars-train-2022_03_01_19_04_26/model=D-best-weights-step=13000.pth
+[INFO] 2022-03-01 23:56:36 > Start visualize images....
+[INFO] 2022-03-01 23:58:03 > Step:   13900 Progress: 34.8% Elapsed: 4:53:30 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.9152 Generator_loss: 0.658737 
+[INFO] 2022-03-01 23:59:38 > Generator checkpoint is checkpoints/SNGAN_cars-train-2022_03_01_19_04_26/model=G-best-weights-step=13000.pth
+[INFO] 2022-03-01 23:59:38 > Discriminator checkpoint is checkpoints/SNGAN_cars-train-2022_03_01_19_04_26/model=D-best-weights-step=13000.pth
+[INFO] 2022-03-01 23:59:38 > Start visualize images....
+[INFO] 2022-03-01 23:59:59 > Step:   14000 Progress: 35.0% Elapsed: 4:55:26 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.934 Generator_loss: 0.676913 
+[INFO] 2022-03-01 23:59:59 > Start Evaluation (14000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-01 23:59:59 > Calculating FID Score....
+[INFO] 2022-03-02 00:00:23 > Calculating Inception Score....
+[INFO] 2022-03-02 00:00:42 > Calculate F_beta Score....
+[INFO] 2022-03-02 00:01:23 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 00:01:24 > Calculate Accuracies....
+[INFO] 2022-03-02 00:01:41 > Calculate Accuracies....
+[INFO] 2022-03-02 00:01:46 > F_8 score (Step: 14000, Using test images): 0.8601451378081841
+[INFO] 2022-03-02 00:01:46 > F_1/8 score (Step: 14000, Using test images): 0.8004075021712944
+[INFO] 2022-03-02 00:01:46 > FID score (Step: 14000, Using test moments): 37.494685737976255
+[INFO] 2022-03-02 00:01:46 > Inception score (Step: 14000, 12112 generated images): 2.945868492126465
+[INFO] 2022-03-02 00:01:46 > Best FID score (Step: 13000, Using test moments): 35.274076754609155
+[INFO] 2022-03-02 00:01:46 > Start visualize images....
+[INFO] 2022-03-02 00:01:47 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_current_fid.png
+[INFO] 2022-03-02 00:01:49 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 00:03:45 > Step:   14100 Progress: 35.2% Elapsed: 4:59:12 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.91502 Generator_loss: 0.676806 
+[INFO] 2022-03-02 00:05:42 > Step:   14200 Progress: 35.5% Elapsed: 5:01:09 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.88405 Generator_loss: 0.710079 
+[INFO] 2022-03-02 00:07:37 > Step:   14300 Progress: 35.8% Elapsed: 5:03:05 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.92091 Generator_loss: 0.752542 
+[INFO] 2022-03-02 00:09:33 > Step:   14400 Progress: 36.0% Elapsed: 5:05:01 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.93139 Generator_loss: 0.67889 
+[INFO] 2022-03-02 00:11:29 > Step:   14500 Progress: 36.2% Elapsed: 5:06:57 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.90023 Generator_loss: 0.552809 
+[INFO] 2022-03-02 00:13:25 > Step:   14600 Progress: 36.5% Elapsed: 5:08:52 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.9403 Generator_loss: 0.824172 
+[INFO] 2022-03-02 00:15:21 > Step:   14700 Progress: 36.8% Elapsed: 5:10:48 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.91781 Generator_loss: 0.679909 
+[INFO] 2022-03-02 00:17:17 > Step:   14800 Progress: 37.0% Elapsed: 5:12:44 SN_Regularizer_Loss: 0.0 Discriminator_loss: 2.01925 Generator_loss: 0.65255 
+[INFO] 2022-03-02 00:19:13 > Step:   14900 Progress: 37.2% Elapsed: 5:14:40 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.92071 Generator_loss: 0.72798 
+[INFO] 2022-03-02 00:21:09 > Step:   15000 Progress: 37.5% Elapsed: 5:16:36 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.88632 Generator_loss: 0.726514 
+[INFO] 2022-03-02 00:21:09 > Start Evaluation (15000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 00:21:09 > Calculating FID Score....
+[INFO] 2022-03-02 00:21:33 > Calculating Inception Score....
+[INFO] 2022-03-02 00:21:52 > Calculate F_beta Score....
+[INFO] 2022-03-02 00:22:33 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 00:22:34 > Calculate Accuracies....
+[INFO] 2022-03-02 00:22:51 > Calculate Accuracies....
+[INFO] 2022-03-02 00:22:56 > F_8 score (Step: 15000, Using test images): 0.843570944195864
+[INFO] 2022-03-02 00:22:56 > F_1/8 score (Step: 15000, Using test images): 0.81981886685231
+[INFO] 2022-03-02 00:22:56 > FID score (Step: 15000, Using test moments): 35.27174100078261
+[INFO] 2022-03-02 00:22:56 > Inception score (Step: 15000, 12112 generated images): 3.2193753719329834
+[INFO] 2022-03-02 00:22:56 > Best FID score (Step: 15000, Using test moments): 35.27174100078261
+[INFO] 2022-03-02 00:22:56 > Start visualize images....
+[INFO] 2022-03-02 00:22:57 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-02 00:22:59 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 00:24:55 > Step:   15100 Progress: 37.8% Elapsed: 5:20:22 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.87076 Generator_loss: 0.819564 
+[INFO] 2022-03-02 00:26:51 > Step:   15200 Progress: 38.0% Elapsed: 5:22:18 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.95796 Generator_loss: 0.854747 
+[INFO] 2022-03-02 00:28:46 > Step:   15300 Progress: 38.2% Elapsed: 5:24:14 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.94153 Generator_loss: 0.83114 
+[INFO] 2022-03-02 00:30:42 > Step:   15400 Progress: 38.5% Elapsed: 5:26:10 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.92945 Generator_loss: 0.680229 
+[INFO] 2022-03-02 00:32:38 > Step:   15500 Progress: 38.8% Elapsed: 5:28:05 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.93395 Generator_loss: 0.897389 
+[INFO] 2022-03-02 00:34:34 > Step:   15600 Progress: 39.0% Elapsed: 5:30:01 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.90074 Generator_loss: 0.716386 
+[INFO] 2022-03-02 00:36:30 > Step:   15700 Progress: 39.2% Elapsed: 5:31:58 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.86959 Generator_loss: 0.710325 
+[INFO] 2022-03-02 00:36:31 > Generator checkpoint is checkpoints/SNGAN_cars-train-2022_03_01_19_04_26/model=G-best-weights-step=15000.pth
+[INFO] 2022-03-02 00:36:31 > Discriminator checkpoint is checkpoints/SNGAN_cars-train-2022_03_01_19_04_26/model=D-best-weights-step=15000.pth
+[INFO] 2022-03-02 00:36:31 > Start visualize images....
+[INFO] 2022-03-02 00:37:39 > Generator checkpoint is checkpoints/SNGAN_cars-train-2022_03_01_19_04_26/model=G-best-weights-step=15000.pth
+[INFO] 2022-03-02 00:37:39 > Discriminator checkpoint is checkpoints/SNGAN_cars-train-2022_03_01_19_04_26/model=D-best-weights-step=15000.pth
+[INFO] 2022-03-02 00:37:39 > Start visualize images....
+[INFO] 2022-03-02 00:38:26 > Step:   15800 Progress: 39.5% Elapsed: 5:33:53 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.90733 Generator_loss: 0.596652 
+[INFO] 2022-03-02 00:40:22 > Step:   15900 Progress: 39.8% Elapsed: 5:35:49 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.91811 Generator_loss: 0.66802 
+[INFO] 2022-03-02 00:42:18 > Step:   16000 Progress: 40.0% Elapsed: 5:37:45 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.9881 Generator_loss: 0.784103 
+[INFO] 2022-03-02 00:42:18 > Start Evaluation (16000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 00:42:18 > Calculating FID Score....
+[INFO] 2022-03-02 00:42:42 > Calculating Inception Score....
+[INFO] 2022-03-02 00:43:01 > Calculate F_beta Score....
+[INFO] 2022-03-02 00:43:42 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 00:43:42 > Calculate Accuracies....
+[INFO] 2022-03-02 00:44:00 > Calculate Accuracies....
+[INFO] 2022-03-02 00:44:05 > F_8 score (Step: 16000, Using test images): 0.8742884012860316
+[INFO] 2022-03-02 00:44:05 > F_1/8 score (Step: 16000, Using test images): 0.8504424814676302
+[INFO] 2022-03-02 00:44:05 > FID score (Step: 16000, Using test moments): 30.47397405545337
+[INFO] 2022-03-02 00:44:05 > Inception score (Step: 16000, 12112 generated images): 3.043513536453247
+[INFO] 2022-03-02 00:44:05 > Best FID score (Step: 16000, Using test moments): 30.47397405545337
+[INFO] 2022-03-02 00:44:05 > Start visualize images....
+[INFO] 2022-03-02 00:44:05 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-02 00:44:08 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 00:46:03 > Step:   16100 Progress: 40.2% Elapsed: 5:41:31 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.88454 Generator_loss: 0.647897 
+[INFO] 2022-03-02 00:47:59 > Step:   16200 Progress: 40.5% Elapsed: 5:43:27 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.8713 Generator_loss: 0.597908 
+[INFO] 2022-03-02 00:49:55 > Step:   16300 Progress: 40.8% Elapsed: 5:45:22 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.90326 Generator_loss: 0.717685 
+[INFO] 2022-03-02 00:51:51 > Step:   16400 Progress: 41.0% Elapsed: 5:47:18 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.96787 Generator_loss: 0.738001 
+[INFO] 2022-03-02 00:53:47 > Step:   16500 Progress: 41.2% Elapsed: 5:49:15 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.92188 Generator_loss: 0.662716 
+[INFO] 2022-03-02 00:55:43 > Step:   16600 Progress: 41.5% Elapsed: 5:51:10 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.8984 Generator_loss: 0.664305 
+[INFO] 2022-03-02 00:57:39 > Step:   16700 Progress: 41.8% Elapsed: 5:53:06 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.92425 Generator_loss: 0.535679 
+[INFO] 2022-03-02 00:59:35 > Step:   16800 Progress: 42.0% Elapsed: 5:55:02 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.83359 Generator_loss: 0.682155 
+[INFO] 2022-03-02 01:01:30 > Step:   16900 Progress: 42.2% Elapsed: 5:56:58 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.91485 Generator_loss: 0.780728 
+[INFO] 2022-03-02 01:03:26 > Step:   17000 Progress: 42.5% Elapsed: 5:58:54 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.87659 Generator_loss: 1.01773 
+[INFO] 2022-03-02 01:03:26 > Start Evaluation (17000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 01:03:26 > Calculating FID Score....
+[INFO] 2022-03-02 01:03:50 > Calculating Inception Score....
+[INFO] 2022-03-02 01:04:09 > Calculate F_beta Score....
+[INFO] 2022-03-02 01:04:50 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 01:04:50 > Calculate Accuracies....
+[INFO] 2022-03-02 01:05:08 > Calculate Accuracies....
+[INFO] 2022-03-02 01:05:13 > F_8 score (Step: 17000, Using test images): 0.8967431570915818
+[INFO] 2022-03-02 01:05:13 > F_1/8 score (Step: 17000, Using test images): 0.8427512399777188
+[INFO] 2022-03-02 01:05:13 > FID score (Step: 17000, Using test moments): 30.06312356866215
+[INFO] 2022-03-02 01:05:13 > Inception score (Step: 17000, 12112 generated images): 3.0722920894622803
+[INFO] 2022-03-02 01:05:13 > Best FID score (Step: 17000, Using test moments): 30.06312356866215
+[INFO] 2022-03-02 01:05:13 > Start visualize images....
+[INFO] 2022-03-02 01:05:13 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-02 01:05:16 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 01:07:11 > Step:   17100 Progress: 42.8% Elapsed: 6:02:39 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.95263 Generator_loss: 0.788064 
+[INFO] 2022-03-02 01:09:07 > Step:   17200 Progress: 43.0% Elapsed: 6:04:35 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.91724 Generator_loss: 0.731307 
+[INFO] 2022-03-02 01:11:03 > Step:   17300 Progress: 43.2% Elapsed: 6:06:31 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.87482 Generator_loss: 0.610271 
+[INFO] 2022-03-02 01:12:59 > Step:   17400 Progress: 43.5% Elapsed: 6:08:27 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.87793 Generator_loss: 0.634418 
+[INFO] 2022-03-02 01:14:55 > Step:   17500 Progress: 43.8% Elapsed: 6:10:22 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.88183 Generator_loss: 0.608451 
+[INFO] 2022-03-02 01:16:51 > Step:   17600 Progress: 44.0% Elapsed: 6:12:18 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.91728 Generator_loss: 0.789064 
+[INFO] 2022-03-02 01:18:47 > Step:   17700 Progress: 44.2% Elapsed: 6:14:14 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.88384 Generator_loss: 0.653218 
+[INFO] 2022-03-02 01:20:42 > Step:   17800 Progress: 44.5% Elapsed: 6:16:10 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.89241 Generator_loss: 0.641746 
+[INFO] 2022-03-02 01:22:38 > Step:   17900 Progress: 44.8% Elapsed: 6:18:05 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.877 Generator_loss: 0.78178 
+[INFO] 2022-03-02 01:24:34 > Step:   18000 Progress: 45.0% Elapsed: 6:20:01 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.83663 Generator_loss: 0.988113 
+[INFO] 2022-03-02 01:24:34 > Start Evaluation (18000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 01:24:34 > Calculating FID Score....
+[INFO] 2022-03-02 01:24:58 > Calculating Inception Score....
+[INFO] 2022-03-02 01:25:17 > Calculate F_beta Score....
+[INFO] 2022-03-02 01:25:58 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 01:25:59 > Calculate Accuracies....
+[INFO] 2022-03-02 01:26:16 > Calculate Accuracies....
+[INFO] 2022-03-02 01:26:21 > F_8 score (Step: 18000, Using test images): 0.9256785523117731
+[INFO] 2022-03-02 01:26:21 > F_1/8 score (Step: 18000, Using test images): 0.8496950792001621
+[INFO] 2022-03-02 01:26:21 > FID score (Step: 18000, Using test moments): 28.30725878301223
+[INFO] 2022-03-02 01:26:21 > Inception score (Step: 18000, 12112 generated images): 3.036893844604492
+[INFO] 2022-03-02 01:26:21 > Best FID score (Step: 18000, Using test moments): 28.30725878301223
+[INFO] 2022-03-02 01:26:21 > Start visualize images....
+[INFO] 2022-03-02 01:26:22 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-02 01:26:24 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 01:28:20 > Step:   18100 Progress: 45.2% Elapsed: 6:23:48 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.87065 Generator_loss: 0.713471 
+[INFO] 2022-03-02 01:30:16 > Step:   18200 Progress: 45.5% Elapsed: 6:25:43 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.92138 Generator_loss: 0.723824 
+[INFO] 2022-03-02 01:32:12 > Step:   18300 Progress: 45.8% Elapsed: 6:27:39 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.89451 Generator_loss: 0.782128 
+[INFO] 2022-03-02 01:34:08 > Step:   18400 Progress: 46.0% Elapsed: 6:29:35 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.85488 Generator_loss: 0.801026 
+[INFO] 2022-03-02 01:36:03 > Step:   18500 Progress: 46.2% Elapsed: 6:31:31 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.93368 Generator_loss: 0.804775 
+[INFO] 2022-03-02 01:37:59 > Step:   18600 Progress: 46.5% Elapsed: 6:33:27 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.88583 Generator_loss: 0.653642 
+[INFO] 2022-03-02 01:39:55 > Step:   18700 Progress: 46.8% Elapsed: 6:35:22 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.85694 Generator_loss: 0.621807 
+[INFO] 2022-03-02 01:41:51 > Step:   18800 Progress: 47.0% Elapsed: 6:37:18 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.88577 Generator_loss: 0.823864 
+[INFO] 2022-03-02 01:43:47 > Step:   18900 Progress: 47.2% Elapsed: 6:39:15 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.85135 Generator_loss: 0.71143 
+[INFO] 2022-03-02 01:45:43 > Step:   19000 Progress: 47.5% Elapsed: 6:41:11 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.89536 Generator_loss: 0.65193 
+[INFO] 2022-03-02 01:45:43 > Start Evaluation (19000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 01:45:43 > Calculating FID Score....
+[INFO] 2022-03-02 01:46:07 > Calculating Inception Score....
+[INFO] 2022-03-02 01:46:26 > Calculate F_beta Score....
+[INFO] 2022-03-02 01:47:08 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 01:47:08 > Calculate Accuracies....
+[INFO] 2022-03-02 01:47:26 > Calculate Accuracies....
+[INFO] 2022-03-02 01:47:31 > F_8 score (Step: 19000, Using test images): 0.9141643762451662
+[INFO] 2022-03-02 01:47:31 > F_1/8 score (Step: 19000, Using test images): 0.852459898972609
+[INFO] 2022-03-02 01:47:31 > FID score (Step: 19000, Using test moments): 28.62287575519963
+[INFO] 2022-03-02 01:47:31 > Inception score (Step: 19000, 12112 generated images): 3.243976593017578
+[INFO] 2022-03-02 01:47:31 > Best FID score (Step: 18000, Using test moments): 28.30725878301223
+[INFO] 2022-03-02 01:47:31 > Start visualize images....
+[INFO] 2022-03-02 01:47:31 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_current_fid.png
+[INFO] 2022-03-02 01:47:34 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 01:49:29 > Step:   19100 Progress: 47.8% Elapsed: 6:44:57 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.866 Generator_loss: 0.630558 
+[INFO] 2022-03-02 01:51:25 > Step:   19200 Progress: 48.0% Elapsed: 6:46:53 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.88982 Generator_loss: 0.754169 
+[INFO] 2022-03-02 01:53:21 > Step:   19300 Progress: 48.2% Elapsed: 6:48:48 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.90705 Generator_loss: 0.826834 
+[INFO] 2022-03-02 01:55:17 > Step:   19400 Progress: 48.5% Elapsed: 6:50:44 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.82985 Generator_loss: 0.499879 
+[INFO] 2022-03-02 01:57:13 > Step:   19500 Progress: 48.8% Elapsed: 6:52:40 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.86273 Generator_loss: 0.816626 
+[INFO] 2022-03-02 01:59:09 > Step:   19600 Progress: 49.0% Elapsed: 6:54:36 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.83926 Generator_loss: 0.523001 
+[INFO] 2022-03-02 02:01:05 > Step:   19700 Progress: 49.2% Elapsed: 6:56:32 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.87572 Generator_loss: 0.417126 
+[INFO] 2022-03-02 02:03:00 > Step:   19800 Progress: 49.5% Elapsed: 6:58:28 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.84305 Generator_loss: 0.734342 
+[INFO] 2022-03-02 02:04:56 > Step:   19900 Progress: 49.8% Elapsed: 7:00:24 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.84304 Generator_loss: 0.655242 
+[INFO] 2022-03-02 02:06:52 > Step:   20000 Progress: 50.0% Elapsed: 7:02:19 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.90988 Generator_loss: 0.693921 
+[INFO] 2022-03-02 02:06:52 > Start Evaluation (20000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 02:06:52 > Calculating FID Score....
+[INFO] 2022-03-02 02:07:16 > Calculating Inception Score....
+[INFO] 2022-03-02 02:07:35 > Calculate F_beta Score....
+[INFO] 2022-03-02 02:08:16 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 02:08:16 > Calculate Accuracies....
+[INFO] 2022-03-02 02:08:34 > Calculate Accuracies....
+[INFO] 2022-03-02 02:08:39 > F_8 score (Step: 20000, Using test images): 0.9209391554716625
+[INFO] 2022-03-02 02:08:39 > F_1/8 score (Step: 20000, Using test images): 0.8469165557475925
+[INFO] 2022-03-02 02:08:39 > FID score (Step: 20000, Using test moments): 26.948480985445087
+[INFO] 2022-03-02 02:08:39 > Inception score (Step: 20000, 12112 generated images): 3.3128678798675537
+[INFO] 2022-03-02 02:08:39 > Best FID score (Step: 20000, Using test moments): 26.948480985445087
+[INFO] 2022-03-02 02:08:39 > Start visualize images....
+[INFO] 2022-03-02 02:08:39 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-02 02:08:42 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 02:10:37 > Step:   20100 Progress: 50.2% Elapsed: 7:06:05 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.83375 Generator_loss: 0.604732 
+[INFO] 2022-03-02 02:12:33 > Step:   20200 Progress: 50.5% Elapsed: 7:08:00 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.88377 Generator_loss: 0.638532 
+[INFO] 2022-03-02 02:14:29 > Step:   20300 Progress: 50.7% Elapsed: 7:09:56 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.84523 Generator_loss: 0.550728 
+[INFO] 2022-03-02 02:16:25 > Step:   20400 Progress: 51.0% Elapsed: 7:11:52 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.86142 Generator_loss: 0.589359 
+[INFO] 2022-03-02 02:18:21 > Step:   20500 Progress: 51.2% Elapsed: 7:13:48 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.85123 Generator_loss: 0.733222 
+[INFO] 2022-03-02 02:20:16 > Step:   20600 Progress: 51.5% Elapsed: 7:15:44 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.84671 Generator_loss: 0.780758 
+[INFO] 2022-03-02 02:22:12 > Step:   20700 Progress: 51.7% Elapsed: 7:17:40 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.88865 Generator_loss: 0.692765 
+[INFO] 2022-03-02 02:24:08 > Step:   20800 Progress: 52.0% Elapsed: 7:19:35 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.84635 Generator_loss: 0.779562 
+[INFO] 2022-03-02 02:26:04 > Step:   20900 Progress: 52.2% Elapsed: 7:21:31 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.89261 Generator_loss: 0.751812 
+[INFO] 2022-03-02 02:27:59 > Step:   21000 Progress: 52.5% Elapsed: 7:23:27 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.88576 Generator_loss: 0.71725 
+[INFO] 2022-03-02 02:27:59 > Start Evaluation (21000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 02:27:59 > Calculating FID Score....
+[INFO] 2022-03-02 02:28:24 > Calculating Inception Score....
+[INFO] 2022-03-02 02:28:43 > Calculate F_beta Score....
+[INFO] 2022-03-02 02:29:23 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 02:29:24 > Calculate Accuracies....
+[INFO] 2022-03-02 02:29:41 > Calculate Accuracies....
+[INFO] 2022-03-02 02:29:46 > F_8 score (Step: 21000, Using test images): 0.9341866569581081
+[INFO] 2022-03-02 02:29:46 > F_1/8 score (Step: 21000, Using test images): 0.8759511296866787
+[INFO] 2022-03-02 02:29:46 > FID score (Step: 21000, Using test moments): 24.52516150222229
+[INFO] 2022-03-02 02:29:46 > Inception score (Step: 21000, 12112 generated images): 2.9161648750305176
+[INFO] 2022-03-02 02:29:46 > Best FID score (Step: 21000, Using test moments): 24.52516150222229
+[INFO] 2022-03-02 02:29:46 > Start visualize images....
+[INFO] 2022-03-02 02:29:47 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-02 02:29:49 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 02:31:45 > Step:   21100 Progress: 52.8% Elapsed: 7:27:12 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.82422 Generator_loss: 0.702769 
+[INFO] 2022-03-02 02:33:41 > Step:   21200 Progress: 53.0% Elapsed: 7:29:09 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.87034 Generator_loss: 0.784192 
+[INFO] 2022-03-02 02:35:37 > Step:   21300 Progress: 53.2% Elapsed: 7:31:04 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.91287 Generator_loss: 0.804157 
+[INFO] 2022-03-02 02:37:33 > Step:   21400 Progress: 53.5% Elapsed: 7:33:00 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.91531 Generator_loss: 0.683371 
+[INFO] 2022-03-02 02:39:29 > Step:   21500 Progress: 53.8% Elapsed: 7:34:56 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.85526 Generator_loss: 0.617646 
+[INFO] 2022-03-02 02:41:24 > Step:   21600 Progress: 54.0% Elapsed: 7:36:52 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.7873 Generator_loss: 0.714286 
+[INFO] 2022-03-02 02:43:20 > Step:   21700 Progress: 54.2% Elapsed: 7:38:47 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.95593 Generator_loss: 0.753336 
+[INFO] 2022-03-02 02:45:16 > Step:   21800 Progress: 54.5% Elapsed: 7:40:43 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.8344 Generator_loss: 0.942748 
+[INFO] 2022-03-02 02:46:54 > Generator checkpoint is checkpoints/SNGAN_cars-train-2022_03_01_19_04_26_copied/model=G-best-weights-step=21000.pth
+[INFO] 2022-03-02 02:46:54 > Discriminator checkpoint is checkpoints/SNGAN_cars-train-2022_03_01_19_04_26_copied/model=D-best-weights-step=21000.pth
+[INFO] 2022-03-02 02:46:55 > Calculate moments of test dataset
+[INFO] 2022-03-02 02:47:00 > Save calculated means and covariances to disk...
+[INFO] 2022-03-02 02:47:00 > calculate inception score of test dataset.
+[INFO] 2022-03-02 02:47:03 > Inception score=3.023555040359497-Inception_std=nan
+[INFO] 2022-03-02 02:47:03 > Start training....
+[INFO] 2022-03-02 02:47:12 > Step:   21900 Progress: 54.8% Elapsed: 7:42:39 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.83787 Generator_loss: 0.634581 
+[INFO] 2022-03-02 02:48:34 > Generator checkpoint is checkpoints/SNGAN_cars-train-2022_03_01_19_04_26_copied/model=G-best-weights-step=21000.pth
+[INFO] 2022-03-02 02:48:34 > Discriminator checkpoint is checkpoints/SNGAN_cars-train-2022_03_01_19_04_26_copied/model=D-best-weights-step=21000.pth
+[INFO] 2022-03-02 02:48:34 > Start training....
+[INFO] 2022-03-02 02:49:08 > Step:   22000 Progress: 55.0% Elapsed: 7:44:35 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.84314 Generator_loss: 0.763254 
+[INFO] 2022-03-02 02:49:08 > Start Evaluation (22000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 02:49:08 > Calculating FID Score....
+[INFO] 2022-03-02 02:49:32 > Calculating Inception Score....
+[INFO] 2022-03-02 02:49:51 > Calculate F_beta Score....
+[INFO] 2022-03-02 02:50:32 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 02:50:33 > Calculate Accuracies....
+[INFO] 2022-03-02 02:50:50 > Calculate Accuracies....
+[INFO] 2022-03-02 02:50:55 > F_8 score (Step: 22000, Using test images): 0.924676772598616
+[INFO] 2022-03-02 02:50:55 > F_1/8 score (Step: 22000, Using test images): 0.8796585906273955
+[INFO] 2022-03-02 02:50:55 > FID score (Step: 22000, Using test moments): 26.487694760188447
+[INFO] 2022-03-02 02:50:55 > Inception score (Step: 22000, 12112 generated images): 3.0575742721557617
+[INFO] 2022-03-02 02:50:55 > Best FID score (Step: 21000, Using test moments): 24.52516150222229
+[INFO] 2022-03-02 02:50:55 > Start visualize images....
+[INFO] 2022-03-02 02:50:56 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_current_fid.png
+[INFO] 2022-03-02 02:50:58 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 02:52:54 > Step:   22100 Progress: 55.2% Elapsed: 7:48:22 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.87045 Generator_loss: 0.557571 
+[INFO] 2022-03-02 02:54:50 > Step:   22200 Progress: 55.5% Elapsed: 7:50:17 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.82337 Generator_loss: 0.512488 
+[INFO] 2022-03-02 02:56:46 > Step:   22300 Progress: 55.8% Elapsed: 7:52:13 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.93646 Generator_loss: 0.781904 
+[INFO] 2022-03-02 02:58:42 > Step:   22400 Progress: 56.0% Elapsed: 7:54:09 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.81758 Generator_loss: 0.672566 
+[INFO] 2022-03-02 03:00:37 > Step:   22500 Progress: 56.2% Elapsed: 7:56:05 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.76463 Generator_loss: 0.658116 
+[INFO] 2022-03-02 03:02:33 > Step:   22600 Progress: 56.5% Elapsed: 7:58:01 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.84714 Generator_loss: 0.513258 
+[INFO] 2022-03-02 03:04:29 > Step:   22700 Progress: 56.8% Elapsed: 7:59:56 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.83627 Generator_loss: 0.934363 
+[INFO] 2022-03-02 03:06:25 > Step:   22800 Progress: 57.0% Elapsed: 8:01:53 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.8397 Generator_loss: 0.955882 
+[INFO] 2022-03-02 03:08:21 > Step:   22900 Progress: 57.2% Elapsed: 8:03:48 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.80189 Generator_loss: 0.943053 
+[INFO] 2022-03-02 03:10:16 > Step:   23000 Progress: 57.5% Elapsed: 8:05:44 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.91093 Generator_loss: 0.802536 
+[INFO] 2022-03-02 03:10:16 > Start Evaluation (23000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 03:10:17 > Calculating FID Score....
+[INFO] 2022-03-02 03:10:41 > Calculating Inception Score....
+[INFO] 2022-03-02 03:11:00 > Calculate F_beta Score....
+[INFO] 2022-03-02 03:11:40 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 03:11:41 > Calculate Accuracies....
+[INFO] 2022-03-02 03:11:59 > Calculate Accuracies....
+[INFO] 2022-03-02 03:12:03 > F_8 score (Step: 23000, Using test images): 0.9209145810261149
+[INFO] 2022-03-02 03:12:03 > F_1/8 score (Step: 23000, Using test images): 0.8834149214766805
+[INFO] 2022-03-02 03:12:03 > FID score (Step: 23000, Using test moments): 26.67154370196198
+[INFO] 2022-03-02 03:12:03 > Inception score (Step: 23000, 12112 generated images): 3.056086778640747
+[INFO] 2022-03-02 03:12:03 > Best FID score (Step: 21000, Using test moments): 24.52516150222229
+[INFO] 2022-03-02 03:12:03 > Start visualize images....
+[INFO] 2022-03-02 03:12:04 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_current_fid.png
+[INFO] 2022-03-02 03:12:07 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 03:14:02 > Step:   23100 Progress: 57.8% Elapsed: 8:09:30 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.81798 Generator_loss: 0.583451 
+[INFO] 2022-03-02 03:15:58 > Step:   23200 Progress: 58.0% Elapsed: 8:11:25 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.85921 Generator_loss: 0.642683 
+[INFO] 2022-03-02 03:17:53 > Step:   23300 Progress: 58.2% Elapsed: 8:13:21 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.77474 Generator_loss: 0.728534 
+[INFO] 2022-03-02 03:19:49 > Step:   23400 Progress: 58.5% Elapsed: 8:15:17 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.7921 Generator_loss: 0.675162 
+[INFO] 2022-03-02 03:21:45 > Step:   23500 Progress: 58.8% Elapsed: 8:17:12 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.98642 Generator_loss: 0.841207 
+[INFO] 2022-03-02 03:23:41 > Step:   23600 Progress: 59.0% Elapsed: 8:19:09 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.8329 Generator_loss: 0.485378 
+[INFO] 2022-03-02 03:25:37 > Step:   23700 Progress: 59.2% Elapsed: 8:21:04 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.75654 Generator_loss: 0.599288 
+[INFO] 2022-03-02 03:27:33 > Step:   23800 Progress: 59.5% Elapsed: 8:23:00 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.87372 Generator_loss: 0.757302 
+[INFO] 2022-03-02 03:29:28 > Step:   23900 Progress: 59.8% Elapsed: 8:24:56 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.79693 Generator_loss: 0.723071 
+[INFO] 2022-03-02 03:31:24 > Step:   24000 Progress: 60.0% Elapsed: 8:26:52 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.93924 Generator_loss: 0.707706 
+[INFO] 2022-03-02 03:31:24 > Start Evaluation (24000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 03:31:24 > Calculating FID Score....
+[INFO] 2022-03-02 03:31:49 > Calculating Inception Score....
+[INFO] 2022-03-02 03:32:08 > Calculate F_beta Score....
+[INFO] 2022-03-02 03:32:48 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 03:32:49 > Calculate Accuracies....
+[INFO] 2022-03-02 03:33:07 > Calculate Accuracies....
+[INFO] 2022-03-02 03:33:11 > F_8 score (Step: 24000, Using test images): 0.925206855859088
+[INFO] 2022-03-02 03:33:11 > F_1/8 score (Step: 24000, Using test images): 0.8752733467389314
+[INFO] 2022-03-02 03:33:11 > FID score (Step: 24000, Using test moments): 26.843920387083102
+[INFO] 2022-03-02 03:33:11 > Inception score (Step: 24000, 12112 generated images): 3.0988683700561523
+[INFO] 2022-03-02 03:33:11 > Best FID score (Step: 21000, Using test moments): 24.52516150222229
+[INFO] 2022-03-02 03:33:11 > Start visualize images....
+[INFO] 2022-03-02 03:33:12 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_current_fid.png
+[INFO] 2022-03-02 03:33:15 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 03:35:10 > Step:   24100 Progress: 60.2% Elapsed: 8:30:37 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.90768 Generator_loss: 0.585428 
+[INFO] 2022-03-02 03:37:06 > Step:   24200 Progress: 60.5% Elapsed: 8:32:33 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.80648 Generator_loss: 0.589591 
+[INFO] 2022-03-02 03:39:02 > Step:   24300 Progress: 60.8% Elapsed: 8:34:29 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.79774 Generator_loss: 0.755633 
+[INFO] 2022-03-02 03:40:58 > Step:   24400 Progress: 61.0% Elapsed: 8:36:25 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.7322 Generator_loss: 0.599586 
+[INFO] 2022-03-02 03:42:54 > Step:   24500 Progress: 61.3% Elapsed: 8:38:21 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.81101 Generator_loss: 0.857432 
+[INFO] 2022-03-02 03:44:49 > Step:   24600 Progress: 61.5% Elapsed: 8:40:17 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.80076 Generator_loss: 0.498296 
+[INFO] 2022-03-02 03:46:45 > Step:   24700 Progress: 61.8% Elapsed: 8:42:12 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.8757 Generator_loss: 0.666626 
+[INFO] 2022-03-02 03:48:41 > Step:   24800 Progress: 62.0% Elapsed: 8:44:08 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.87021 Generator_loss: 0.696702 
+[INFO] 2022-03-02 03:50:36 > Step:   24900 Progress: 62.3% Elapsed: 8:46:04 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.90163 Generator_loss: 0.807234 
+[INFO] 2022-03-02 03:52:32 > Step:   25000 Progress: 62.5% Elapsed: 8:47:59 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.79505 Generator_loss: 0.75043 
+[INFO] 2022-03-02 03:52:32 > Start Evaluation (25000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 03:52:32 > Calculating FID Score....
+[INFO] 2022-03-02 03:52:56 > Calculating Inception Score....
+[INFO] 2022-03-02 03:53:15 > Calculate F_beta Score....
+[INFO] 2022-03-02 03:53:56 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 03:53:57 > Calculate Accuracies....
+[INFO] 2022-03-02 03:54:15 > Calculate Accuracies....
+[INFO] 2022-03-02 03:54:19 > F_8 score (Step: 25000, Using test images): 0.9317520424778679
+[INFO] 2022-03-02 03:54:19 > F_1/8 score (Step: 25000, Using test images): 0.867736876658465
+[INFO] 2022-03-02 03:54:19 > FID score (Step: 25000, Using test moments): 24.855874538786907
+[INFO] 2022-03-02 03:54:19 > Inception score (Step: 25000, 12112 generated images): 3.342139720916748
+[INFO] 2022-03-02 03:54:19 > Best FID score (Step: 21000, Using test moments): 24.52516150222229
+[INFO] 2022-03-02 03:54:19 > Start visualize images....
+[INFO] 2022-03-02 03:54:20 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_current_fid.png
+[INFO] 2022-03-02 03:54:23 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 03:56:19 > Step:   25100 Progress: 62.7% Elapsed: 8:51:46 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.85284 Generator_loss: 0.651961 
+[INFO] 2022-03-02 03:58:14 > Step:   25200 Progress: 63.0% Elapsed: 8:53:42 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.84882 Generator_loss: 0.810704 
+[INFO] 2022-03-02 04:00:10 > Step:   25300 Progress: 63.2% Elapsed: 8:55:38 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.75472 Generator_loss: 0.4595 
+[INFO] 2022-03-02 04:02:06 > Step:   25400 Progress: 63.5% Elapsed: 8:57:33 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.72094 Generator_loss: 0.788386 
+[INFO] 2022-03-02 04:04:02 > Step:   25500 Progress: 63.7% Elapsed: 8:59:29 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.88827 Generator_loss: 0.727297 
+[INFO] 2022-03-02 04:05:57 > Step:   25600 Progress: 64.0% Elapsed: 9:01:25 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.81475 Generator_loss: 0.653936 
+[INFO] 2022-03-02 04:07:53 > Step:   25700 Progress: 64.2% Elapsed: 9:03:21 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.78543 Generator_loss: 0.675986 
+[INFO] 2022-03-02 04:09:49 > Step:   25800 Progress: 64.5% Elapsed: 9:05:16 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.8816 Generator_loss: 0.596581 
+[INFO] 2022-03-02 04:11:45 > Step:   25900 Progress: 64.8% Elapsed: 9:07:12 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.92166 Generator_loss: 0.773951 
+[INFO] 2022-03-02 04:13:41 > Step:   26000 Progress: 65.0% Elapsed: 9:09:08 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.8693 Generator_loss: 0.682142 
+[INFO] 2022-03-02 04:13:41 > Start Evaluation (26000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 04:13:41 > Calculating FID Score....
+[INFO] 2022-03-02 04:14:05 > Calculating Inception Score....
+[INFO] 2022-03-02 04:14:24 > Calculate F_beta Score....
+[INFO] 2022-03-02 04:15:06 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 04:15:06 > Calculate Accuracies....
+[INFO] 2022-03-02 04:15:24 > Calculate Accuracies....
+[INFO] 2022-03-02 04:15:29 > F_8 score (Step: 26000, Using test images): 0.9158475856867494
+[INFO] 2022-03-02 04:15:29 > F_1/8 score (Step: 26000, Using test images): 0.8938153097726971
+[INFO] 2022-03-02 04:15:29 > FID score (Step: 26000, Using test moments): 23.9556001337138
+[INFO] 2022-03-02 04:15:29 > Inception score (Step: 26000, 12112 generated images): 2.9392998218536377
+[INFO] 2022-03-02 04:15:29 > Best FID score (Step: 26000, Using test moments): 23.9556001337138
+[INFO] 2022-03-02 04:15:29 > Start visualize images....
+[INFO] 2022-03-02 04:15:29 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-02 04:15:32 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 04:17:27 > Step:   26100 Progress: 65.2% Elapsed: 9:12:55 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.79656 Generator_loss: 0.658458 
+[INFO] 2022-03-02 04:19:23 > Step:   26200 Progress: 65.5% Elapsed: 9:14:51 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.85796 Generator_loss: 0.628286 
+[INFO] 2022-03-02 04:21:19 > Step:   26300 Progress: 65.8% Elapsed: 9:16:46 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.78984 Generator_loss: 0.6469 
+[INFO] 2022-03-02 04:23:15 > Step:   26400 Progress: 66.0% Elapsed: 9:18:42 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.81759 Generator_loss: 0.745185 
+[INFO] 2022-03-02 04:25:10 > Step:   26500 Progress: 66.2% Elapsed: 9:20:38 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.78632 Generator_loss: 0.506995 
+[INFO] 2022-03-02 04:27:06 > Step:   26600 Progress: 66.5% Elapsed: 9:22:33 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.69026 Generator_loss: 0.728851 
+[INFO] 2022-03-02 04:29:02 > Step:   26700 Progress: 66.8% Elapsed: 9:24:30 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.70462 Generator_loss: 0.790259 
+[INFO] 2022-03-02 04:30:58 > Step:   26800 Progress: 67.0% Elapsed: 9:26:25 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.75878 Generator_loss: 0.755029 
+[INFO] 2022-03-02 04:32:54 > Step:   26900 Progress: 67.2% Elapsed: 9:28:21 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.73671 Generator_loss: 0.601688 
+[INFO] 2022-03-02 04:34:49 > Step:   27000 Progress: 67.5% Elapsed: 9:30:17 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.78433 Generator_loss: 0.679163 
+[INFO] 2022-03-02 04:34:49 > Start Evaluation (27000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 04:34:49 > Calculating FID Score....
+[INFO] 2022-03-02 04:35:14 > Calculating Inception Score....
+[INFO] 2022-03-02 04:35:33 > Calculate F_beta Score....
+[INFO] 2022-03-02 04:36:14 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 04:36:15 > Calculate Accuracies....
+[INFO] 2022-03-02 04:36:32 > Calculate Accuracies....
+[INFO] 2022-03-02 04:36:37 > F_8 score (Step: 27000, Using test images): 0.9216847723380044
+[INFO] 2022-03-02 04:36:37 > F_1/8 score (Step: 27000, Using test images): 0.8806667800479111
+[INFO] 2022-03-02 04:36:37 > FID score (Step: 27000, Using test moments): 22.86788008173656
+[INFO] 2022-03-02 04:36:37 > Inception score (Step: 27000, 12112 generated images): 2.990858793258667
+[INFO] 2022-03-02 04:36:37 > Best FID score (Step: 27000, Using test moments): 22.86788008173656
+[INFO] 2022-03-02 04:36:37 > Start visualize images....
+[INFO] 2022-03-02 04:36:38 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-02 04:36:40 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 04:38:36 > Step:   27100 Progress: 67.8% Elapsed: 9:34:03 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.75837 Generator_loss: 0.764243 
+[INFO] 2022-03-02 04:40:32 > Step:   27200 Progress: 68.0% Elapsed: 9:35:59 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.76591 Generator_loss: 0.601337 
+[INFO] 2022-03-02 04:42:27 > Step:   27300 Progress: 68.2% Elapsed: 9:37:55 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.7191 Generator_loss: 0.79074 
+[INFO] 2022-03-02 04:44:23 > Step:   27400 Progress: 68.5% Elapsed: 9:39:50 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.73427 Generator_loss: 0.589686 
+[INFO] 2022-03-02 04:46:19 > Step:   27500 Progress: 68.8% Elapsed: 9:41:47 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.79667 Generator_loss: 0.756344 
+[INFO] 2022-03-02 04:48:15 > Step:   27600 Progress: 69.0% Elapsed: 9:43:42 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.83123 Generator_loss: 0.513133 
+[INFO] 2022-03-02 04:50:11 > Step:   27700 Progress: 69.2% Elapsed: 9:45:38 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.80628 Generator_loss: 0.898353 
+[INFO] 2022-03-02 04:52:06 > Step:   27800 Progress: 69.5% Elapsed: 9:47:34 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.70943 Generator_loss: 0.957839 
+[INFO] 2022-03-02 04:54:02 > Step:   27900 Progress: 69.8% Elapsed: 9:49:30 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.80862 Generator_loss: 0.763161 
+[INFO] 2022-03-02 04:55:58 > Step:   28000 Progress: 70.0% Elapsed: 9:51:25 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.80304 Generator_loss: 0.737619 
+[INFO] 2022-03-02 04:55:58 > Start Evaluation (28000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 04:55:58 > Calculating FID Score....
+[INFO] 2022-03-02 04:56:22 > Calculating Inception Score....
+[INFO] 2022-03-02 04:56:41 > Calculate F_beta Score....
+[INFO] 2022-03-02 04:57:22 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 04:57:23 > Calculate Accuracies....
+[INFO] 2022-03-02 04:57:40 > Calculate Accuracies....
+[INFO] 2022-03-02 04:57:45 > F_8 score (Step: 28000, Using test images): 0.9385841861851103
+[INFO] 2022-03-02 04:57:45 > F_1/8 score (Step: 28000, Using test images): 0.8983414285921186
+[INFO] 2022-03-02 04:57:45 > FID score (Step: 28000, Using test moments): 23.107546174185103
+[INFO] 2022-03-02 04:57:45 > Inception score (Step: 28000, 12112 generated images): 3.1398961544036865
+[INFO] 2022-03-02 04:57:45 > Best FID score (Step: 27000, Using test moments): 22.86788008173656
+[INFO] 2022-03-02 04:57:45 > Start visualize images....
+[INFO] 2022-03-02 04:57:45 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_current_fid.png
+[INFO] 2022-03-02 04:57:48 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 04:59:44 > Step:   28100 Progress: 70.2% Elapsed: 9:55:11 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.71952 Generator_loss: 0.785597 
+[INFO] 2022-03-02 05:01:39 > Step:   28200 Progress: 70.5% Elapsed: 9:57:07 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.88011 Generator_loss: 0.788692 
+[INFO] 2022-03-02 05:03:36 > Step:   28300 Progress: 70.8% Elapsed: 9:59:03 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.66272 Generator_loss: 0.390767 
+[INFO] 2022-03-02 05:05:31 > Step:   28400 Progress: 71.0% Elapsed: 10:00:59 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.79604 Generator_loss: 0.813321 
+[INFO] 2022-03-02 05:07:27 > Step:   28500 Progress: 71.2% Elapsed: 10:02:55 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.75538 Generator_loss: 0.740006 
+[INFO] 2022-03-02 05:09:23 > Step:   28600 Progress: 71.5% Elapsed: 10:04:50 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.86831 Generator_loss: 0.563393 
+[INFO] 2022-03-02 05:11:19 > Step:   28700 Progress: 71.8% Elapsed: 10:06:46 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.84345 Generator_loss: 0.66318 
+[INFO] 2022-03-02 05:13:14 > Step:   28800 Progress: 72.0% Elapsed: 10:08:42 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.79894 Generator_loss: 0.655458 
+[INFO] 2022-03-02 05:15:10 > Step:   28900 Progress: 72.2% Elapsed: 10:10:37 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.79385 Generator_loss: 0.653391 
+[INFO] 2022-03-02 05:17:06 > Step:   29000 Progress: 72.5% Elapsed: 10:12:34 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.72984 Generator_loss: 0.619445 
+[INFO] 2022-03-02 05:17:06 > Start Evaluation (29000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 05:17:06 > Calculating FID Score....
+[INFO] 2022-03-02 05:17:31 > Calculating Inception Score....
+[INFO] 2022-03-02 05:17:50 > Calculate F_beta Score....
+[INFO] 2022-03-02 05:18:31 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 05:18:31 > Calculate Accuracies....
+[INFO] 2022-03-02 05:18:49 > Calculate Accuracies....
+[INFO] 2022-03-02 05:18:54 > F_8 score (Step: 29000, Using test images): 0.9314739624599736
+[INFO] 2022-03-02 05:18:54 > F_1/8 score (Step: 29000, Using test images): 0.897517523094917
+[INFO] 2022-03-02 05:18:54 > FID score (Step: 29000, Using test moments): 21.29343310889635
+[INFO] 2022-03-02 05:18:54 > Inception score (Step: 29000, 12112 generated images): 2.841189384460449
+[INFO] 2022-03-02 05:18:54 > Best FID score (Step: 29000, Using test moments): 21.29343310889635
+[INFO] 2022-03-02 05:18:54 > Start visualize images....
+[INFO] 2022-03-02 05:18:54 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-02 05:18:57 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 05:20:52 > Step:   29100 Progress: 72.8% Elapsed: 10:16:20 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.78076 Generator_loss: 0.656837 
+[INFO] 2022-03-02 05:22:48 > Step:   29200 Progress: 73.0% Elapsed: 10:18:15 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.69601 Generator_loss: 0.820354 
+[INFO] 2022-03-02 05:24:44 > Step:   29300 Progress: 73.2% Elapsed: 10:20:11 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.73318 Generator_loss: 0.480694 
+[INFO] 2022-03-02 05:26:39 > Step:   29400 Progress: 73.5% Elapsed: 10:22:07 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.77336 Generator_loss: 0.55842 
+[INFO] 2022-03-02 05:28:35 > Step:   29500 Progress: 73.8% Elapsed: 10:24:02 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.71326 Generator_loss: 0.809695 
+[INFO] 2022-03-02 05:30:31 > Step:   29600 Progress: 74.0% Elapsed: 10:25:58 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.79659 Generator_loss: 0.694687 
+[INFO] 2022-03-02 05:32:26 > Step:   29700 Progress: 74.2% Elapsed: 10:27:54 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.77582 Generator_loss: 0.648077 
+[INFO] 2022-03-02 05:34:22 > Step:   29800 Progress: 74.5% Elapsed: 10:29:50 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.82527 Generator_loss: 0.689183 
+[INFO] 2022-03-02 05:36:18 > Step:   29900 Progress: 74.8% Elapsed: 10:31:46 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.81381 Generator_loss: 0.756859 
+[INFO] 2022-03-02 05:38:14 > Step:   30000 Progress: 75.0% Elapsed: 10:33:41 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.73426 Generator_loss: 0.619939 
+[INFO] 2022-03-02 05:38:14 > Start Evaluation (30000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 05:38:14 > Calculating FID Score....
+[INFO] 2022-03-02 05:38:38 > Calculating Inception Score....
+[INFO] 2022-03-02 05:38:57 > Calculate F_beta Score....
+[INFO] 2022-03-02 05:39:38 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 05:39:38 > Calculate Accuracies....
+[INFO] 2022-03-02 05:39:56 > Calculate Accuracies....
+[INFO] 2022-03-02 05:40:01 > F_8 score (Step: 30000, Using test images): 0.9247799885392606
+[INFO] 2022-03-02 05:40:01 > F_1/8 score (Step: 30000, Using test images): 0.913018354373793
+[INFO] 2022-03-02 05:40:01 > FID score (Step: 30000, Using test moments): 20.770108554739295
+[INFO] 2022-03-02 05:40:01 > Inception score (Step: 30000, 12112 generated images): 2.7643234729766846
+[INFO] 2022-03-02 05:40:01 > Best FID score (Step: 30000, Using test moments): 20.770108554739295
+[INFO] 2022-03-02 05:40:01 > Start visualize images....
+[INFO] 2022-03-02 05:40:01 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-02 05:40:04 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 05:41:59 > Step:   30100 Progress: 75.2% Elapsed: 10:37:27 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.77311 Generator_loss: 0.711532 
+[INFO] 2022-03-02 05:43:55 > Step:   30200 Progress: 75.5% Elapsed: 10:39:23 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.77352 Generator_loss: 0.771773 
+[INFO] 2022-03-02 05:45:51 > Step:   30300 Progress: 75.8% Elapsed: 10:41:18 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.74558 Generator_loss: 0.908822 
+[INFO] 2022-03-02 05:47:47 > Step:   30400 Progress: 76.0% Elapsed: 10:43:14 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.73037 Generator_loss: 0.996305 
+[INFO] 2022-03-02 05:49:42 > Step:   30500 Progress: 76.2% Elapsed: 10:45:10 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.72402 Generator_loss: 0.434674 
+[INFO] 2022-03-02 05:51:38 > Step:   30600 Progress: 76.5% Elapsed: 10:47:06 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.78885 Generator_loss: 0.58968 
+[INFO] 2022-03-02 05:53:34 > Step:   30700 Progress: 76.8% Elapsed: 10:49:02 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.82067 Generator_loss: 0.664225 
+[INFO] 2022-03-02 05:55:30 > Step:   30800 Progress: 77.0% Elapsed: 10:50:57 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.77818 Generator_loss: 0.87666 
+[INFO] 2022-03-02 05:57:25 > Step:   30900 Progress: 77.2% Elapsed: 10:52:53 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.83411 Generator_loss: 0.92423 
+[INFO] 2022-03-02 05:59:21 > Step:   31000 Progress: 77.5% Elapsed: 10:54:49 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.83332 Generator_loss: 0.729414 
+[INFO] 2022-03-02 05:59:21 > Start Evaluation (31000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 05:59:21 > Calculating FID Score....
+[INFO] 2022-03-02 05:59:46 > Calculating Inception Score....
+[INFO] 2022-03-02 06:00:05 > Calculate F_beta Score....
+[INFO] 2022-03-02 06:00:46 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 06:00:46 > Calculate Accuracies....
+[INFO] 2022-03-02 06:01:04 > Calculate Accuracies....
+[INFO] 2022-03-02 06:01:09 > F_8 score (Step: 31000, Using test images): 0.9199185511467242
+[INFO] 2022-03-02 06:01:09 > F_1/8 score (Step: 31000, Using test images): 0.8901501682590734
+[INFO] 2022-03-02 06:01:09 > FID score (Step: 31000, Using test moments): 22.083374528011973
+[INFO] 2022-03-02 06:01:09 > Inception score (Step: 31000, 12112 generated images): 2.8690474033355713
+[INFO] 2022-03-02 06:01:09 > Best FID score (Step: 30000, Using test moments): 20.770108554739295
+[INFO] 2022-03-02 06:01:09 > Start visualize images....
+[INFO] 2022-03-02 06:01:09 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_current_fid.png
+[INFO] 2022-03-02 06:01:12 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 06:03:08 > Step:   31100 Progress: 77.8% Elapsed: 10:58:35 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.7001 Generator_loss: 0.701586 
+[INFO] 2022-03-02 06:05:03 > Step:   31200 Progress: 78.0% Elapsed: 11:00:31 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.81917 Generator_loss: 0.612785 
+[INFO] 2022-03-02 06:06:59 > Step:   31300 Progress: 78.2% Elapsed: 11:02:26 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.75382 Generator_loss: 0.385277 
+[INFO] 2022-03-02 06:08:55 > Step:   31400 Progress: 78.5% Elapsed: 11:04:23 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.83104 Generator_loss: 0.708657 
+[INFO] 2022-03-02 06:10:51 > Step:   31500 Progress: 78.8% Elapsed: 11:06:18 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.84964 Generator_loss: 0.874342 
+[INFO] 2022-03-02 06:12:46 > Step:   31600 Progress: 79.0% Elapsed: 11:08:14 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.78455 Generator_loss: 0.901764 
+[INFO] 2022-03-02 06:14:42 > Step:   31700 Progress: 79.2% Elapsed: 11:10:09 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.76097 Generator_loss: 0.791482 
+[INFO] 2022-03-02 06:16:38 > Step:   31800 Progress: 79.5% Elapsed: 11:12:05 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.76742 Generator_loss: 0.726844 
+[INFO] 2022-03-02 06:18:33 > Step:   31900 Progress: 79.8% Elapsed: 11:14:01 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.676 Generator_loss: 0.747772 
+[INFO] 2022-03-02 06:20:29 > Step:   32000 Progress: 80.0% Elapsed: 11:15:56 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.73183 Generator_loss: 0.714594 
+[INFO] 2022-03-02 06:20:29 > Start Evaluation (32000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 06:20:29 > Calculating FID Score....
+[INFO] 2022-03-02 06:20:54 > Calculating Inception Score....
+[INFO] 2022-03-02 06:21:13 > Calculate F_beta Score....
+[INFO] 2022-03-02 06:21:54 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 06:21:55 > Calculate Accuracies....
+[INFO] 2022-03-02 06:22:13 > Calculate Accuracies....
+[INFO] 2022-03-02 06:22:17 > F_8 score (Step: 32000, Using test images): 0.9270846279260696
+[INFO] 2022-03-02 06:22:17 > F_1/8 score (Step: 32000, Using test images): 0.9044168038430024
+[INFO] 2022-03-02 06:22:17 > FID score (Step: 32000, Using test moments): 21.188527740674942
+[INFO] 2022-03-02 06:22:17 > Inception score (Step: 32000, 12112 generated images): 2.8762030601501465
+[INFO] 2022-03-02 06:22:17 > Best FID score (Step: 30000, Using test moments): 20.770108554739295
+[INFO] 2022-03-02 06:22:17 > Start visualize images....
+[INFO] 2022-03-02 06:22:18 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_current_fid.png
+[INFO] 2022-03-02 06:22:21 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 06:24:16 > Step:   32100 Progress: 80.2% Elapsed: 11:19:44 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.70437 Generator_loss: 0.638651 
+[INFO] 2022-03-02 06:26:12 > Step:   32200 Progress: 80.5% Elapsed: 11:21:40 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.71611 Generator_loss: 0.760861 
+[INFO] 2022-03-02 06:28:08 > Step:   32300 Progress: 80.8% Elapsed: 11:23:35 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.7913 Generator_loss: 0.586572 
+[INFO] 2022-03-02 06:30:04 > Step:   32400 Progress: 81.0% Elapsed: 11:25:31 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.72936 Generator_loss: 0.76858 
+[INFO] 2022-03-02 06:31:59 > Step:   32500 Progress: 81.2% Elapsed: 11:27:27 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.75927 Generator_loss: 0.672176 
+[INFO] 2022-03-02 06:33:55 > Step:   32600 Progress: 81.5% Elapsed: 11:29:22 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.72518 Generator_loss: 0.759726 
+[INFO] 2022-03-02 06:35:51 > Step:   32700 Progress: 81.8% Elapsed: 11:31:18 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.81998 Generator_loss: 0.980719 
+[INFO] 2022-03-02 06:37:46 > Step:   32800 Progress: 82.0% Elapsed: 11:33:14 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.79004 Generator_loss: 0.700281 
+[INFO] 2022-03-02 06:39:42 > Step:   32900 Progress: 82.2% Elapsed: 11:35:09 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.7675 Generator_loss: 0.732013 
+[INFO] 2022-03-02 06:41:38 > Step:   33000 Progress: 82.5% Elapsed: 11:37:06 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.85086 Generator_loss: 0.706392 
+[INFO] 2022-03-02 06:41:38 > Start Evaluation (33000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 06:41:38 > Calculating FID Score....
+[INFO] 2022-03-02 06:42:02 > Calculating Inception Score....
+[INFO] 2022-03-02 06:42:21 > Calculate F_beta Score....
+[INFO] 2022-03-02 06:43:03 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 06:43:03 > Calculate Accuracies....
+[INFO] 2022-03-02 06:43:21 > Calculate Accuracies....
+[INFO] 2022-03-02 06:43:26 > F_8 score (Step: 33000, Using test images): 0.91779267672393
+[INFO] 2022-03-02 06:43:26 > F_1/8 score (Step: 33000, Using test images): 0.9268833524987927
+[INFO] 2022-03-02 06:43:26 > FID score (Step: 33000, Using test moments): 21.15345098741932
+[INFO] 2022-03-02 06:43:26 > Inception score (Step: 33000, 12112 generated images): 2.9664981365203857
+[INFO] 2022-03-02 06:43:26 > Best FID score (Step: 30000, Using test moments): 20.770108554739295
+[INFO] 2022-03-02 06:43:26 > Start visualize images....
+[INFO] 2022-03-02 06:43:26 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_current_fid.png
+[INFO] 2022-03-02 06:43:29 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 06:45:24 > Step:   33100 Progress: 82.8% Elapsed: 11:40:52 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.70729 Generator_loss: 0.890463 
+[INFO] 2022-03-02 06:47:20 > Step:   33200 Progress: 83.0% Elapsed: 11:42:48 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.71565 Generator_loss: 0.76736 
+[INFO] 2022-03-02 06:49:16 > Step:   33300 Progress: 83.2% Elapsed: 11:44:43 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.65663 Generator_loss: 0.310832 
+[INFO] 2022-03-02 06:51:11 > Step:   33400 Progress: 83.5% Elapsed: 11:46:39 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.68168 Generator_loss: 0.858698 
+[INFO] 2022-03-02 06:53:07 > Step:   33500 Progress: 83.8% Elapsed: 11:48:34 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.73465 Generator_loss: 0.763582 
+[INFO] 2022-03-02 06:55:03 > Step:   33600 Progress: 84.0% Elapsed: 11:50:30 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.78765 Generator_loss: 0.826949 
+[INFO] 2022-03-02 06:56:59 > Step:   33700 Progress: 84.2% Elapsed: 11:52:26 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.74749 Generator_loss: 0.577657 
+[INFO] 2022-03-02 06:58:54 > Step:   33800 Progress: 84.5% Elapsed: 11:54:22 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.72621 Generator_loss: 0.497711 
+[INFO] 2022-03-02 07:00:50 > Step:   33900 Progress: 84.8% Elapsed: 11:56:17 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.72453 Generator_loss: 0.514802 
+[INFO] 2022-03-02 07:02:46 > Step:   34000 Progress: 85.0% Elapsed: 11:58:13 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.89417 Generator_loss: 0.739885 
+[INFO] 2022-03-02 07:02:46 > Start Evaluation (34000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 07:02:46 > Calculating FID Score....
+[INFO] 2022-03-02 07:03:09 > Calculating Inception Score....
+[INFO] 2022-03-02 07:03:28 > Calculate F_beta Score....
+[INFO] 2022-03-02 07:04:09 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 07:04:10 > Calculate Accuracies....
+[INFO] 2022-03-02 07:04:28 > Calculate Accuracies....
+[INFO] 2022-03-02 07:04:32 > F_8 score (Step: 34000, Using test images): 0.9273996752913247
+[INFO] 2022-03-02 07:04:32 > F_1/8 score (Step: 34000, Using test images): 0.9029609109645732
+[INFO] 2022-03-02 07:04:32 > FID score (Step: 34000, Using test moments): 21.216076365776132
+[INFO] 2022-03-02 07:04:32 > Inception score (Step: 34000, 12112 generated images): 3.167677640914917
+[INFO] 2022-03-02 07:04:32 > Best FID score (Step: 30000, Using test moments): 20.770108554739295
+[INFO] 2022-03-02 07:04:32 > Start visualize images....
+[INFO] 2022-03-02 07:04:33 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_current_fid.png
+[INFO] 2022-03-02 07:04:36 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 07:06:31 > Step:   34100 Progress: 85.2% Elapsed: 12:01:59 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.78007 Generator_loss: 0.915943 
+[INFO] 2022-03-02 07:08:27 > Step:   34200 Progress: 85.5% Elapsed: 12:03:54 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.76812 Generator_loss: 0.609382 
+[INFO] 2022-03-02 07:10:22 > Step:   34300 Progress: 85.8% Elapsed: 12:05:50 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.75177 Generator_loss: 0.827959 
+[INFO] 2022-03-02 07:12:18 > Step:   34400 Progress: 86.0% Elapsed: 12:07:45 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.78306 Generator_loss: 0.650642 
+[INFO] 2022-03-02 07:14:14 > Step:   34500 Progress: 86.2% Elapsed: 12:09:42 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.67395 Generator_loss: 0.688694 
+[INFO] 2022-03-02 07:16:10 > Step:   34600 Progress: 86.5% Elapsed: 12:11:37 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.80137 Generator_loss: 0.799206 
+[INFO] 2022-03-02 07:18:05 > Step:   34700 Progress: 86.8% Elapsed: 12:13:33 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.74049 Generator_loss: 0.625787 
+[INFO] 2022-03-02 07:20:01 > Step:   34800 Progress: 87.0% Elapsed: 12:15:28 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.70702 Generator_loss: 0.822607 
+[INFO] 2022-03-02 07:21:57 > Step:   34900 Progress: 87.2% Elapsed: 12:17:24 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.73624 Generator_loss: 0.600098 
+[INFO] 2022-03-02 07:23:52 > Step:   35000 Progress: 87.5% Elapsed: 12:19:20 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.8128 Generator_loss: 0.696823 
+[INFO] 2022-03-02 07:23:52 > Start Evaluation (35000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 07:23:52 > Calculating FID Score....
+[INFO] 2022-03-02 07:24:16 > Calculating Inception Score....
+[INFO] 2022-03-02 07:24:35 > Calculate F_beta Score....
+[INFO] 2022-03-02 07:25:17 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 07:25:17 > Calculate Accuracies....
+[INFO] 2022-03-02 07:25:35 > Calculate Accuracies....
+[INFO] 2022-03-02 07:25:39 > F_8 score (Step: 35000, Using test images): 0.9283765976257053
+[INFO] 2022-03-02 07:25:39 > F_1/8 score (Step: 35000, Using test images): 0.9106650838883523
+[INFO] 2022-03-02 07:25:39 > FID score (Step: 35000, Using test moments): 20.92954860592471
+[INFO] 2022-03-02 07:25:39 > Inception score (Step: 35000, 12112 generated images): 2.9500045776367188
+[INFO] 2022-03-02 07:25:39 > Best FID score (Step: 30000, Using test moments): 20.770108554739295
+[INFO] 2022-03-02 07:25:39 > Start visualize images....
+[INFO] 2022-03-02 07:25:40 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_current_fid.png
+[INFO] 2022-03-02 07:25:43 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 07:27:38 > Step:   35100 Progress: 87.8% Elapsed: 12:23:06 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.72389 Generator_loss: 0.734883 
+[INFO] 2022-03-02 07:29:34 > Step:   35200 Progress: 88.0% Elapsed: 12:25:01 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.60162 Generator_loss: 0.834819 
+[INFO] 2022-03-02 07:31:30 > Step:   35300 Progress: 88.2% Elapsed: 12:26:57 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.73021 Generator_loss: 0.65428 
+[INFO] 2022-03-02 07:33:25 > Step:   35400 Progress: 88.5% Elapsed: 12:28:53 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.67017 Generator_loss: 0.871048 
+[INFO] 2022-03-02 07:35:21 > Step:   35500 Progress: 88.8% Elapsed: 12:30:49 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.72533 Generator_loss: 0.694286 
+[INFO] 2022-03-02 07:37:17 > Step:   35600 Progress: 89.0% Elapsed: 12:32:44 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.77301 Generator_loss: 0.736417 
+[INFO] 2022-03-02 07:39:12 > Step:   35700 Progress: 89.2% Elapsed: 12:34:40 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.60908 Generator_loss: 0.564169 
+[INFO] 2022-03-02 07:41:08 > Step:   35800 Progress: 89.5% Elapsed: 12:36:35 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.67707 Generator_loss: 0.76747 
+[INFO] 2022-03-02 07:43:04 > Step:   35900 Progress: 89.8% Elapsed: 12:38:31 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.68604 Generator_loss: 0.727756 
+[INFO] 2022-03-02 07:44:59 > Step:   36000 Progress: 90.0% Elapsed: 12:40:27 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.87775 Generator_loss: 0.725868 
+[INFO] 2022-03-02 07:44:59 > Start Evaluation (36000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 07:44:59 > Calculating FID Score....
+[INFO] 2022-03-02 07:45:24 > Calculating Inception Score....
+[INFO] 2022-03-02 07:45:43 > Calculate F_beta Score....
+[INFO] 2022-03-02 07:46:25 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 07:46:25 > Calculate Accuracies....
+[INFO] 2022-03-02 07:46:43 > Calculate Accuracies....
+[INFO] 2022-03-02 07:46:47 > F_8 score (Step: 36000, Using test images): 0.9330010281289688
+[INFO] 2022-03-02 07:46:47 > F_1/8 score (Step: 36000, Using test images): 0.9156734066515135
+[INFO] 2022-03-02 07:46:47 > FID score (Step: 36000, Using test moments): 21.057083535613884
+[INFO] 2022-03-02 07:46:47 > Inception score (Step: 36000, 12112 generated images): 2.7706289291381836
+[INFO] 2022-03-02 07:46:47 > Best FID score (Step: 30000, Using test moments): 20.770108554739295
+[INFO] 2022-03-02 07:46:47 > Start visualize images....
+[INFO] 2022-03-02 07:46:48 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_current_fid.png
+[INFO] 2022-03-02 07:46:51 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 07:48:47 > Step:   36100 Progress: 90.2% Elapsed: 12:44:14 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.70141 Generator_loss: 1.02009 
+[INFO] 2022-03-02 07:50:42 > Step:   36200 Progress: 90.5% Elapsed: 12:46:10 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.77601 Generator_loss: 0.587536 
+[INFO] 2022-03-02 07:52:38 > Step:   36300 Progress: 90.8% Elapsed: 12:48:05 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.77744 Generator_loss: 0.86157 
+[INFO] 2022-03-02 07:54:33 > Step:   36400 Progress: 91.0% Elapsed: 12:50:01 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.72971 Generator_loss: 0.925933 
+[INFO] 2022-03-02 07:56:29 > Step:   36500 Progress: 91.2% Elapsed: 12:51:56 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.70832 Generator_loss: 0.678633 
+[INFO] 2022-03-02 07:58:25 > Step:   36600 Progress: 91.5% Elapsed: 12:53:52 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.66682 Generator_loss: 0.787981 
+[INFO] 2022-03-02 08:00:20 > Step:   36700 Progress: 91.8% Elapsed: 12:55:47 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.75799 Generator_loss: 0.785571 
+[INFO] 2022-03-02 08:02:16 > Step:   36800 Progress: 92.0% Elapsed: 12:57:43 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.63903 Generator_loss: 0.819235 
+[INFO] 2022-03-02 08:04:12 > Step:   36900 Progress: 92.2% Elapsed: 12:59:39 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.82078 Generator_loss: 0.796463 
+[INFO] 2022-03-02 08:06:07 > Step:   37000 Progress: 92.5% Elapsed: 13:01:35 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.77686 Generator_loss: 0.60495 
+[INFO] 2022-03-02 08:06:07 > Start Evaluation (37000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 08:06:07 > Calculating FID Score....
+[INFO] 2022-03-02 08:06:32 > Calculating Inception Score....
+[INFO] 2022-03-02 08:06:51 > Calculate F_beta Score....
+[INFO] 2022-03-02 08:07:32 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 08:07:32 > Calculate Accuracies....
+[INFO] 2022-03-02 08:07:50 > Calculate Accuracies....
+[INFO] 2022-03-02 08:07:55 > F_8 score (Step: 37000, Using test images): 0.9431358701189595
+[INFO] 2022-03-02 08:07:55 > F_1/8 score (Step: 37000, Using test images): 0.916550975575862
+[INFO] 2022-03-02 08:07:55 > FID score (Step: 37000, Using test moments): 20.391827028938252
+[INFO] 2022-03-02 08:07:55 > Inception score (Step: 37000, 12112 generated images): 2.918212413787842
+[INFO] 2022-03-02 08:07:55 > Best FID score (Step: 37000, Using test moments): 20.391827028938252
+[INFO] 2022-03-02 08:07:55 > Start visualize images....
+[INFO] 2022-03-02 08:07:55 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-02 08:07:58 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 08:09:53 > Step:   37100 Progress: 92.8% Elapsed: 13:05:21 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.8067 Generator_loss: 0.495288 
+[INFO] 2022-03-02 08:11:49 > Step:   37200 Progress: 93.0% Elapsed: 13:07:16 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.64306 Generator_loss: 0.841384 
+[INFO] 2022-03-02 08:13:45 > Step:   37300 Progress: 93.2% Elapsed: 13:09:12 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.65226 Generator_loss: 0.683715 
+[INFO] 2022-03-02 08:15:40 > Step:   37400 Progress: 93.5% Elapsed: 13:11:08 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.79139 Generator_loss: 0.711085 
+[INFO] 2022-03-02 08:17:36 > Step:   37500 Progress: 93.8% Elapsed: 13:13:03 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.65162 Generator_loss: 0.8345 
+[INFO] 2022-03-02 08:19:31 > Step:   37600 Progress: 94.0% Elapsed: 13:14:59 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.62884 Generator_loss: 0.934697 
+[INFO] 2022-03-02 08:21:28 > Step:   37700 Progress: 94.2% Elapsed: 13:16:55 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.68176 Generator_loss: 0.70074 
+[INFO] 2022-03-02 08:23:23 > Step:   37800 Progress: 94.5% Elapsed: 13:18:51 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.77441 Generator_loss: 0.736899 
+[INFO] 2022-03-02 08:25:19 > Step:   37900 Progress: 94.8% Elapsed: 13:20:46 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.68009 Generator_loss: 0.692678 
+[INFO] 2022-03-02 08:27:14 > Step:   38000 Progress: 95.0% Elapsed: 13:22:42 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.6886 Generator_loss: 0.864514 
+[INFO] 2022-03-02 08:27:14 > Start Evaluation (38000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 08:27:14 > Calculating FID Score....
+[INFO] 2022-03-02 08:27:38 > Calculating Inception Score....
+[INFO] 2022-03-02 08:27:57 > Calculate F_beta Score....
+[INFO] 2022-03-02 08:28:40 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 08:28:40 > Calculate Accuracies....
+[INFO] 2022-03-02 08:28:58 > Calculate Accuracies....
+[INFO] 2022-03-02 08:29:02 > F_8 score (Step: 38000, Using test images): 0.9307726654656308
+[INFO] 2022-03-02 08:29:02 > F_1/8 score (Step: 38000, Using test images): 0.8931238355509198
+[INFO] 2022-03-02 08:29:02 > FID score (Step: 38000, Using test moments): 21.362477414099914
+[INFO] 2022-03-02 08:29:02 > Inception score (Step: 38000, 12112 generated images): 3.008068323135376
+[INFO] 2022-03-02 08:29:02 > Best FID score (Step: 37000, Using test moments): 20.391827028938252
+[INFO] 2022-03-02 08:29:02 > Start visualize images....
+[INFO] 2022-03-02 08:29:03 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_current_fid.png
+[INFO] 2022-03-02 08:29:06 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 08:31:01 > Step:   38100 Progress: 95.2% Elapsed: 13:26:28 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.78422 Generator_loss: 0.72542 
+[INFO] 2022-03-02 08:32:56 > Step:   38200 Progress: 95.5% Elapsed: 13:28:24 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.70786 Generator_loss: 0.860424 
+[INFO] 2022-03-02 08:34:52 > Step:   38300 Progress: 95.8% Elapsed: 13:30:19 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.61129 Generator_loss: 0.733109 
+[INFO] 2022-03-02 08:36:48 > Step:   38400 Progress: 96.0% Elapsed: 13:32:15 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.65583 Generator_loss: 0.849855 
+[INFO] 2022-03-02 08:38:44 > Step:   38500 Progress: 96.2% Elapsed: 13:34:11 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.72922 Generator_loss: 0.835325 
+[INFO] 2022-03-02 08:40:39 > Step:   38600 Progress: 96.5% Elapsed: 13:36:06 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.71384 Generator_loss: 0.549813 
+[INFO] 2022-03-02 08:42:35 > Step:   38700 Progress: 96.8% Elapsed: 13:38:02 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.61745 Generator_loss: 0.936975 
+[INFO] 2022-03-02 08:44:30 > Step:   38800 Progress: 97.0% Elapsed: 13:39:58 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.80874 Generator_loss: 0.867809 
+[INFO] 2022-03-02 08:46:26 > Step:   38900 Progress: 97.2% Elapsed: 13:41:53 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.71948 Generator_loss: 0.747246 
+[INFO] 2022-03-02 08:48:21 > Step:   39000 Progress: 97.5% Elapsed: 13:43:49 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.6492 Generator_loss: 1.05698 
+[INFO] 2022-03-02 08:48:21 > Start Evaluation (39000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 08:48:21 > Calculating FID Score....
+[INFO] 2022-03-02 08:48:45 > Calculating Inception Score....
+[INFO] 2022-03-02 08:49:04 > Calculate F_beta Score....
+[INFO] 2022-03-02 08:49:45 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 08:49:46 > Calculate Accuracies....
+[INFO] 2022-03-02 08:50:04 > Calculate Accuracies....
+[INFO] 2022-03-02 08:50:08 > F_8 score (Step: 39000, Using test images): 0.9228478920694502
+[INFO] 2022-03-02 08:50:08 > F_1/8 score (Step: 39000, Using test images): 0.9179883874703618
+[INFO] 2022-03-02 08:50:08 > FID score (Step: 39000, Using test moments): 19.81873761588622
+[INFO] 2022-03-02 08:50:08 > Inception score (Step: 39000, 12112 generated images): 2.9201953411102295
+[INFO] 2022-03-02 08:50:08 > Best FID score (Step: 39000, Using test moments): 19.81873761588622
+[INFO] 2022-03-02 08:50:08 > Start visualize images....
+[INFO] 2022-03-02 08:50:09 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_best_fid.png
+[INFO] 2022-03-02 08:50:12 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 08:52:07 > Step:   39100 Progress: 97.8% Elapsed: 13:47:34 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.80033 Generator_loss: 0.85144 
+[INFO] 2022-03-02 08:54:03 > Step:   39200 Progress: 98.0% Elapsed: 13:49:30 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.6748 Generator_loss: 0.912414 
+[INFO] 2022-03-02 08:55:58 > Step:   39300 Progress: 98.2% Elapsed: 13:51:26 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.64051 Generator_loss: 0.728314 
+[INFO] 2022-03-02 08:57:54 > Step:   39400 Progress: 98.5% Elapsed: 13:53:21 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.6833 Generator_loss: 0.517219 
+[INFO] 2022-03-02 08:59:50 > Step:   39500 Progress: 98.8% Elapsed: 13:55:17 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.76577 Generator_loss: 0.690707 
+[INFO] 2022-03-02 09:01:45 > Step:   39600 Progress: 99.0% Elapsed: 13:57:12 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.84789 Generator_loss: 0.699459 
+[INFO] 2022-03-02 09:03:41 > Step:   39700 Progress: 99.2% Elapsed: 13:59:08 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.65791 Generator_loss: 0.680338 
+[INFO] 2022-03-02 09:05:36 > Step:   39800 Progress: 99.5% Elapsed: 14:01:04 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.59776 Generator_loss: 0.76886 
+[INFO] 2022-03-02 09:07:32 > Step:   39900 Progress: 99.8% Elapsed: 14:02:59 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.67794 Generator_loss: 0.842196 
+[INFO] 2022-03-02 09:09:28 > Step:   40000 Progress: 100.0% Elapsed: 14:04:55 SN_Regularizer_Loss: 0.0 Discriminator_loss: 1.73026 Generator_loss: 0.768707 
+[INFO] 2022-03-02 09:09:28 > Start Evaluation (40000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 09:09:28 > Calculating FID Score....
+[INFO] 2022-03-02 09:09:52 > Calculating Inception Score....
+[INFO] 2022-03-02 09:10:11 > Calculate F_beta Score....
+[INFO] 2022-03-02 09:10:53 > Save image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/pr_curve.png
+[INFO] 2022-03-02 09:10:54 > Calculate Accuracies....
+[INFO] 2022-03-02 09:11:11 > Calculate Accuracies....
+[INFO] 2022-03-02 09:11:16 > F_8 score (Step: 40000, Using test images): 0.910878796161598
+[INFO] 2022-03-02 09:11:16 > F_1/8 score (Step: 40000, Using test images): 0.9150282705649488
+[INFO] 2022-03-02 09:11:16 > FID score (Step: 40000, Using test moments): 20.72849894443891
+[INFO] 2022-03-02 09:11:16 > Inception score (Step: 40000, 12112 generated images): 2.8682780265808105
+[INFO] 2022-03-02 09:11:16 > Best FID score (Step: 39000, Using test moments): 19.81873761588622
+[INFO] 2022-03-02 09:11:16 > Start visualize images....
+[INFO] 2022-03-02 09:11:16 > Saved image to ./figures/SNGAN_cars-train-2022_03_01_19_04_26/generated_canvas_current_fid.png
+[INFO] 2022-03-02 09:11:19 > Save model to checkpoints/SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 09:11:20 > Start Evaluation (40000 Step): SNGAN_cars-train-2022_03_01_19_04_26
+[INFO] 2022-03-02 09:11:20 > Calculating FID Score....
+[INFO] 2022-03-02 09:12:46 > 0: FID score 20.773558852129526
+[INFO] 2022-03-02 09:12:46 > Calculating Inception Score....
+[INFO] 2022-03-02 09:13:05 > 0: Inception score 2.872570276260376
+[INFO] 2022-03-02 09:13:05 > Calculating FID Score....
+[INFO] 2022-03-02 09:14:30 > 1: FID score 21.02737288609464
+[INFO] 2022-03-02 09:14:30 > Calculating Inception Score....
+[INFO] 2022-03-02 09:14:49 > 1: Inception score 2.848785877227783
+[INFO] 2022-03-02 09:14:49 > Calculating FID Score....
+[INFO] 2022-03-02 09:16:15 > 2: FID score 20.873534972309017
+[INFO] 2022-03-02 09:16:15 > Calculating Inception Score....
+[INFO] 2022-03-02 09:16:34 > 2: Inception score 2.8352551460266113
+[INFO] 2022-03-02 09:16:34 > FID score using Using test moments score: Avg Scores: 20.89148890351106 Std Dev: 0.10439396117150568
+[INFO] 2022-03-02 09:16:34 > Inception score using Using test moments score: Avg Scores: 2.8522037665049234 Std Dev: 0.015424357607883212

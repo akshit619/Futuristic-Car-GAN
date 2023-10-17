@@ -1,4 +1,4 @@
-Futuristic-Car-GAN
+# Futuristic-Car-GAN
 
 Used StudioGAN 0.2.0 release to train the SNGAN model.  
 StudioGAN Repo: https://github.com/POSTECH-CVLab/PyTorch-StudioGAN   

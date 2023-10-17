@@ -10,9 +10,3 @@ This repo contains:
 4. The code which was used to train ResNet to predict latent codes (described briefly in abstract).  
 5. The code for Car segmentation masking.
 6. The results of our model during various training stages in form of image grid.  
-  
-Team Members:  
-Vaibhav Tripathi  
-Eshaan Agrawal  
-Lavish Bansal  
-Vivek Agrawal  

@@ -33,11 +33,5 @@ pip install -r requirements.txt
    ```
 2. Navigate to the project directory and run the Jupyter Notebooks to explore the models.
 
-## Contributing
-Feel free to fork this repository, make changes, and submit pull requests.
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgements
 - The GAN framework used is based on **StudioGAN** ([GitHub link](https://github.com/POSTECH-CVLab/PyTorch-StudioGAN)).
